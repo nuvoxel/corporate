@@ -1,7 +1,6 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import { GetStartedButton } from '@/components/GetStartedButton'
 import { ArrowRight, Recycle, Server, Package, ShieldCheck, Store, Truck } from 'lucide-react'
 import Link from 'next/link'
 

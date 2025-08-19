@@ -109,7 +109,7 @@ jobs:
           action: "upload"
           app_location: "/"
           api_location: ""
-          output_location: ".next"
+          output_location: "out"
           skip_app_build: true
           # For production deployment
           production_branch: "main"

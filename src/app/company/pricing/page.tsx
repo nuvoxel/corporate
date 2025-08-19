@@ -5,21 +5,13 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Check, X, ArrowRight, BarChart3, FileSpreadsheet, Globe, Zap, Shield, Building2, Users, Code, DollarSign, Cloud } from 'lucide-react'
-import { useUser, useOrganization, useAuth } from '@clerk/nextjs'
-
 export default function PricingPage() {
-  const { user, isSignedIn } = useUser()
-  const { organization } = useOrganization()
-  const { has } = useAuth()
-  
-  // For pricing display, we still need to check actual plan subscriptions
-  // to show "CURRENT PLAN" badges correctly
-  const currentPlan = user?.publicMetadata?.subscription_tier as string || 'free'
-  const hasMaxTrial = isSignedIn && currentPlan === 'max_trial'
-  const hasMaxSubscription = isSignedIn && currentPlan === 'max'
-  const hasProSubscription = isSignedIn && currentPlan === 'pro'
-  const hasEnterpriseSubscription = isSignedIn && organization?.publicMetadata?.subscription_tier === 'enterprise'
-  const hasFreeSubscription = isSignedIn && !hasProSubscription && !hasMaxSubscription && !hasMaxTrial && !hasEnterpriseSubscription
+  // Since corporate site has no auth, no subscription status to check
+  const hasMaxTrial = false
+  const hasMaxSubscription = false
+  const hasProSubscription = false
+  const hasEnterpriseSubscription = false
+  const hasFreeSubscription = false
 
   return (
     <div className="min-h-screen bg-background">

@@ -3,7 +3,6 @@
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card'
-import { GetStartedButton } from '@/components/GetStartedButton'
 import { 
   TrendingUp, 
   BarChart3, 
@@ -20,10 +19,8 @@ import {
 import Link from 'next/link'
 import Image from 'next/image'
 import { HydrogenLogo } from './HydrogenLogo'
-import { useModal } from '@/contexts/ModalContext'
 
 export default function PublicLandingPage() {
-  const { isSignInModalOpen } = useModal()
   return (
     <>
       {/* Hero Section */}
@@ -34,7 +31,7 @@ export default function PublicLandingPage() {
             {/* Content Column */}
             <div className="text-center lg:text-left lg:pr-8 xl:pr-12 overflow-visible">
               <div className="mb-10 -mt-6">
-                <HydrogenLogo className="h-32 md:h-36 lg:h-40 w-auto mx-auto lg:mx-0" aria-label="Hydrogen - Cloud Intelligence" animated={!isSignInModalOpen} variant="dark" />
+                <HydrogenLogo className="h-32 md:h-36 lg:h-40 w-auto mx-auto lg:mx-0" aria-label="Hydrogen - Cloud Intelligence" animated={true} variant="dark" />
               </div>
               
               <div className="mb-8">
@@ -91,11 +88,13 @@ export default function PublicLandingPage() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start items-center">
-                <GetStartedButton 
-                  className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white shadow-xl hover:shadow-2xl transform hover:scale-105 px-8 py-4 text-lg font-semibold"
-                >
-                  Start free trial
-                </GetStartedButton>
+                <Link href="https://hydrogen.nuvoxel.com">
+                  <Button 
+                    className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white shadow-xl hover:shadow-2xl transform hover:scale-105 px-8 py-4 text-lg font-semibold"
+                  >
+                    Start free trial
+                  </Button>
+                </Link>
                 <Button 
                   size="lg" 
                   variant="ghost" 
@@ -496,11 +495,13 @@ export default function PublicLandingPage() {
             Start comparing costs and finding optimal configurations today.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <GetStartedButton 
-              className="bg-white text-primary hover:bg-gray-100 from-white to-white hover:from-gray-100 hover:to-gray-100 font-bold shadow-lg"
-            >
-              Get Started Free
-            </GetStartedButton>
+            <Link href="https://hydrogen.nuvoxel.com">
+              <Button 
+                className="bg-white text-primary hover:bg-gray-100 from-white to-white hover:from-gray-100 hover:to-gray-100 font-bold shadow-lg"
+              >
+                Get Started Free
+              </Button>
+            </Link>
             <Link href="/pricing">
               <Button 
                 size="lg" 

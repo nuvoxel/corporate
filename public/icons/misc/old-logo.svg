@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-25 -25 50 50">
+  <defs>
+    <radialGradient id="grad1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#777"/>
+    </radialGradient>
+    <filter id="f1" width="120%" height="120%" x="-10%" y="-10%">
+      <feGaussianBlur in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="translate(4.5)">
+    <circle r="4" fill="red" stroke="#333" stroke-width=".2">
+      <animateTransform attributeName="transform" dur="4s" from="0 -4.5 0" repeatCount="indefinite" to="360 -4.5 0" type="rotate"/>
+    </circle>
+  </g>
+  <g transform="translate(-4.5)">
+    <circle r="4" fill="purple" stroke="#333" stroke-width=".2">
+      <animateTransform attributeName="transform" dur="4s" from="0 4.5 0" repeatCount="indefinite" to="360 4.5 0" type="rotate"/>
+    </circle>
+  </g>
+  <circle r="20" fill="url(#grad1)" stroke="#777" stroke-width=".5"/>
+  <g transform="translate(20)">
+    <circle r="2" fill="#00f" stroke="#333" stroke-width=".2">
+      <animateTransform attributeName="transform" dur="6s" from="360 -20 0" repeatCount="indefinite" to="0 -20 0" type="rotate"/>
+    </circle>
+  </g>
+</svg>

@@ -1,0 +1,327 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light mode - NuVoxel brand colors */
+    --background: 0 0% 100%; /* #FFFFFF */
+    --foreground: 222 68% 26%; /* #163172 - Deep Navy */
+    --card: 0 0% 100%; /* #FFFFFF */
+    --card-foreground: 222 68% 26%; /* #163172 - Deep Navy */
+    --popover: 0 0% 100%; /* #FFFFFF */
+    --popover-foreground: 222 68% 26%; /* #163172 - Deep Navy */
+    --primary: 222 68% 26%; /* #163172 - Deep Navy */
+    --primary-foreground: 0 0% 100%; /* #FFFFFF */
+    --secondary: 207 58% 50%; /* #3A81C3 - Ocean Blue */
+    --secondary-foreground: 0 0% 100%; /* #FFFFFF */
+    --muted: 210 16% 93%; /* #E5E7EB - Light Border */
+    --muted-foreground: 220 9% 46%; /* #6B7280 - Gray */
+    --accent: 206 69% 73%; /* #8FC2E9 - Light Sky Blue */
+    --accent-foreground: 222 68% 26%; /* #163172 - Deep Navy */
+    --destructive: 0 84.2% 60.2%; /* #D13438 */
+    --destructive-foreground: 0 0% 100%; /* #FFFFFF */
+    --border: 210 16% 90%; /* #E5E7EB */
+    --input: 210 16% 90%; /* #E5E7EB */
+    --ring: 207 58% 50%; /* #3A81C3 - Ocean Blue */
+    --radius: 0.5rem;
+    
+    /* NuVoxel brand colors (actual from logo) */
+    --nuvoxel-navy: #163172;
+    --nuvoxel-ocean: #3A81C3;
+    --nuvoxel-green: #A0CE67;
+    --nuvoxel-midnight: #0E1F4A;
+    --nuvoxel-deep-ocean: #2B5E98;
+    --nuvoxel-sky: #5A9BD4;
+    --nuvoxel-light-sky: #8FC2E9;
+    --nuvoxel-forest: #7AAF4C;
+    --nuvoxel-mint: #C5E199;
+    --nuvoxel-pale-green: #E8F4DC;
+  }
+
+  .dark {
+    /* Dark mode - NuVoxel brand colors adapted */
+    --background: 221 39% 11%; /* #0F172A - Near Black */
+    --foreground: 0 0% 100%; /* #FFFFFF */
+    --card: 222 33% 16%; /* #1E293B - Dark Navy */
+    --card-foreground: 0 0% 100%; /* #FFFFFF */
+    --popover: 222 33% 16%; /* #1E293B - Dark Navy */
+    --popover-foreground: 0 0% 100%; /* #FFFFFF */
+    
+    /* Brand colors brightened for dark mode */
+    --primary: 207 58% 70%; /* #5A9BD4 - Sky Blue (brightened Ocean Blue) */
+    --primary-foreground: 222 68% 26%; /* #163172 - Deep Navy */
+    --secondary: 222 50% 74%; /* #8FC2E9 - Light Sky (brightened) */
+    --secondary-foreground: 222 68% 26%; /* #163172 - Deep Navy */
+    
+    /* Muted and accent colors */
+    --muted: 217 22% 26%; /* #334155 - Dark Border */
+    --muted-foreground: 213 15% 82%; /* #CBD5E1 - Light Gray */
+    --accent: 206 55% 65%; /* #7AB5E3 - Sky Blue (adjusted for dark mode) */
+    --accent-foreground: 222 68% 26%; /* #163172 - Deep Navy */
+    
+    /* Semantic colors for dark mode */
+    --destructive: 356 74% 63%; /* #EE5A5F - Brightened error */
+    --destructive-foreground: 0 0% 100%;
+    --border: 217 22% 26%; /* #334155 - Dark Border */
+    --input: 217 22% 26%; /* #334155 */
+    --ring: 207 58% 70%; /* #5A9BD4 - Sky Blue */
+    
+    /* NuVoxel dark mode brand colors */
+    --nuvoxel-navy: #5A9BD4; /* Brightened for dark mode */
+    --nuvoxel-ocean: #8FC2E9; /* Brightened for dark mode */
+    --nuvoxel-green: #C5E199; /* Brightened for dark mode */
+    --nuvoxel-midnight: #163172; /* Original navy works in dark */
+    --nuvoxel-deep-ocean: #3A81C3; /* Original ocean works in dark */
+    --nuvoxel-sky: #A0C5E3; /* Slightly adjusted */
+    --nuvoxel-light-sky: #BFD9EF; /* Lightened */
+    --nuvoxel-forest: #A0CE67; /* Original green works */
+    --nuvoxel-mint: #D5E9B3; /* Lightened */
+    --nuvoxel-pale-green: #F0F8E8; /* Very light */
+    
+    /* CSS variables for Clerk theming */
+    --nuvoxel-primary: #163172;
+    --nuvoxel-primary-dark: #0E1F4A;
+    --nuvoxel-accent: #3A81C3;
+    --nuvoxel-accent-dark: #2B5E98;
+  }
+  
+  .dark {
+    /* CSS variables for Clerk theming in dark mode */
+    --nuvoxel-primary: #5A9BD4;
+    --nuvoxel-primary-dark: #8FC2E9;
+    --nuvoxel-accent: #8FC2E9;
+    --nuvoxel-accent-dark: #A0C5E3;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .icon-gradient {
+    @apply bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent;
+  }
+  
+  .icon-glow {
+    filter: drop-shadow(0 0 20px rgba(58, 129, 195, 0.3)); /* Ocean Blue glow */
+  }
+  
+  .dark .icon-glow {
+    filter: drop-shadow(0 0 25px rgba(90, 155, 212, 0.4)); /* Sky Blue glow */
+  }
+  
+  /* NuVoxel brand gradients */
+  .gradient-nuvoxel-primary {
+    @apply bg-gradient-to-r from-nuvoxel-navy to-nuvoxel-ocean;
+  }
+  
+  .gradient-nuvoxel-success {
+    @apply bg-gradient-to-r from-nuvoxel-forest to-nuvoxel-green;
+  }
+  
+  .gradient-nuvoxel-light {
+    @apply bg-gradient-to-r from-nuvoxel-sky to-nuvoxel-light-sky;
+  }
+  
+  /* Button hover effects */
+  .btn-primary-gradient {
+    @apply bg-gradient-to-r from-nuvoxel-navy to-nuvoxel-ocean text-white;
+    @apply hover:shadow-lg transition-all duration-200;
+    @apply hover:-translate-y-0.5;
+  }
+  
+  .btn-success-gradient {
+    @apply bg-gradient-to-r from-nuvoxel-forest to-nuvoxel-green text-white;
+    @apply hover:shadow-lg transition-all duration-200;
+    @apply hover:-translate-y-0.5;
+  }
+
+  /* Loading indicator animations */
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes spin-reverse {
+    from {
+      transform: rotate(360deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 3s linear infinite;
+  }
+
+  .animate-spin-reverse {
+    animation: spin-reverse 2s linear infinite;
+  }
+
+  @keyframes draw-line {
+    0% {
+      stroke-dasharray: 0 1;
+    }
+    100% {
+      stroke-dasharray: 1 0;
+    }
+  }
+
+  @keyframes fade-in-delayed {
+    0%, 70% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .animate-draw-line {
+    stroke-dasharray: 0 1;
+    animation: draw-line 2s ease-out forwards;
+    animation-delay: 0.5s;
+  }
+
+  .animate-fade-in-delayed {
+    animation: fade-in-delayed 3s ease-out forwards;
+  }
+
+  /* Character writing animations */
+  @keyframes write-char {
+    0% {
+      opacity: 0;
+      transform: translateY(5px) scale(0.8);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(0) scale(1.1);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .animate-write-char-1 {
+    animation: write-char 0.3s ease-out forwards;
+    animation-delay: 1.3s;
+  }
+
+  .animate-write-char-2 {
+    animation: write-char 0.3s ease-out forwards;
+    animation-delay: 1.5s;
+  }
+
+  .animate-write-char-3 {
+    animation: write-char 0.3s ease-out forwards;
+    animation-delay: 1.7s;
+  }
+
+  .animate-write-char-4 {
+    animation: write-char 0.3s ease-out forwards;
+    animation-delay: 1.9s;
+  }
+
+  .animate-write-char-5 {
+    animation: write-char 0.3s ease-out forwards;
+    animation-delay: 2.2s;
+  }
+  
+  /* Dark mode card improvements */
+  .dark .card {
+    @apply bg-gray-900/50 border-gray-800;
+  }
+  
+  .dark .card:hover {
+    @apply bg-gray-900/70 border-gray-700;
+  }
+  
+  /* Gradient overlays for dark mode */
+  .gradient-overlay-dark {
+    @apply bg-gradient-to-t from-gray-900 via-transparent to-transparent;
+  }
+  
+  /* Better scrollbar for dark mode */
+  .dark ::-webkit-scrollbar {
+    @apply w-2;
+  }
+  
+  .dark ::-webkit-scrollbar-track {
+    @apply bg-gray-900;
+  }
+  
+  .dark ::-webkit-scrollbar-thumb {
+    @apply bg-gray-700 rounded-full;
+  }
+  
+  .dark ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-600;
+  }
+  
+  /* Subtle animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes fadeInScale {
+    0% {
+      opacity: 0;
+      transform: translateY(10px) scale(0.8) rotate(-5deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1) rotate(-5deg);
+    }
+  }
+  
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  /* Glass morphism effect */
+  .glass-effect {
+    @apply backdrop-blur-md bg-white/10 dark:bg-gray-900/30;
+  }
+  
+  /* Neon glow for CTAs in dark mode */
+  .dark .neon-glow {
+    @apply shadow-[0_0_30px_rgba(139,92,246,0.5)];
+  }
+  
+  /* Clerk UserButton fix */
+  .cl-userButtonBox {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .cl-userButtonTrigger {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+  }
+
+  .cl-avatarBox {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .cl-avatarImage {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+}

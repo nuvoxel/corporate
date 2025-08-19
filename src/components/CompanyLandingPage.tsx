@@ -28,14 +28,14 @@ export default function CompanyLandingPage() {
                 <NuVoxelLogo className="h-16 w-auto mx-auto lg:mx-0" />
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-                Cloud Intelligence for Everyone
+                Cloud Intelligence for Everyone - Now Available!
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0">
                 NuVoxel makes cloud pricing transparent and accessible, helping anyone compare providers and make informed decisions
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Button size="lg" asChild className="bg-primary hover:bg-primary/90">
-                  <Link href="/hydrogen">
+                  <Link href="https://hydrogen.nuvoxel.com">
                     Explore Hydrogen
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
@@ -204,7 +204,7 @@ export default function CompanyLandingPage() {
                     </div>
                   </div>
                   <Button asChild className="w-full">
-                    <Link href="/hydrogen">
+                    <Link href="https://hydrogen.nuvoxel.com">
                       Learn More About Hydrogen
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
@@ -360,7 +360,7 @@ export default function CompanyLandingPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="secondary" asChild>
-              <Link href="/hydrogen">
+              <Link href="https://hydrogen.nuvoxel.com">
                 Get Started with Hydrogen
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>

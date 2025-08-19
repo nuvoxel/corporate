@@ -37,7 +37,7 @@ export function Footer() {
               <h4 className="text-sm font-semibold mb-3">Company</h4>
               <ul className="space-y-2">
                 <li>
-                  <Link href="/hydrogen" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  <Link href="https://hydrogen.nuvoxel.com" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                     Hydrogen Platform
                   </Link>
                 </li>

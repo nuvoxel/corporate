@@ -26,7 +26,7 @@ export function Navigation({ showClerkComponents = false }: NavigationProps) {
   return (
     <nav className="flex items-center justify-between px-4 sm:px-6 py-3 border-b bg-background/95 backdrop-blur-sm">
       {/* Logo */}
-      <Link href="/hydrogen/dashboard">
+      <Link href="https://hydrogen.nuvoxel.com/dashboard">
         <HydrogenLogo className="h-7 sm:h-9 w-auto" />
       </Link>
 
@@ -36,22 +36,22 @@ export function Navigation({ showClerkComponents = false }: NavigationProps) {
         <div className="hidden md:flex items-center gap-6">
           {isSignedIn ? (
             <>
-              <Link href="/hydrogen/dashboard" className="text-foreground/80 hover:text-primary transition-colors">
+              <Link href="https://hydrogen.nuvoxel.com/dashboard" className="text-foreground/80 hover:text-primary transition-colors">
                 Dashboard
               </Link>
-              <Link href="/hydrogen/dashboard/compare" className="text-foreground/80 hover:text-primary transition-colors">
+              <Link href="https://hydrogen.nuvoxel.com/dashboard/compare" className="text-foreground/80 hover:text-primary transition-colors">
                 Compare
               </Link>
-              <Link href="/hydrogen/dashboard/scenarios" className="text-foreground/80 hover:text-primary transition-colors">
+              <Link href="https://hydrogen.nuvoxel.com/dashboard/scenarios" className="text-foreground/80 hover:text-primary transition-colors">
                 Scenarios
               </Link>
-              <Link href="/hydrogen/dashboard/leaderboards" className="text-foreground/80 hover:text-primary transition-colors">
+              <Link href="https://hydrogen.nuvoxel.com/dashboard/leaderboards" className="text-foreground/80 hover:text-primary transition-colors">
                 Leaderboards
               </Link>
             </>
           ) : (
             <>
-              <Link href="/hydrogen/dashboard/leaderboards" className="text-foreground/80 hover:text-primary transition-colors">
+              <Link href="https://hydrogen.nuvoxel.com/dashboard/leaderboards" className="text-foreground/80 hover:text-primary transition-colors">
                 Leaderboards
               </Link>
               <Link href="/company/pricing" className="text-foreground/80 hover:text-primary transition-colors">
@@ -64,13 +64,13 @@ export function Navigation({ showClerkComponents = false }: NavigationProps) {
         {/* Mobile navigation icons - only for signed in users */}
         {isSignedIn && (
           <div className="flex md:hidden items-center gap-1">
-            <Link href="/hydrogen/dashboard" className="p-1.5 text-foreground/80 hover:text-primary transition-colors" title="Dashboard">
+            <Link href="https://hydrogen.nuvoxel.com/dashboard" className="p-1.5 text-foreground/80 hover:text-primary transition-colors" title="Dashboard">
               <BarChart3 className="h-5 w-5" />
             </Link>
-            <Link href="/hydrogen/dashboard/compare" className="p-1.5 text-foreground/80 hover:text-primary transition-colors" title="Compare">
+            <Link href="https://hydrogen.nuvoxel.com/dashboard/compare" className="p-1.5 text-foreground/80 hover:text-primary transition-colors" title="Compare">
               <GitCompare className="h-5 w-5" />
             </Link>
-            <Link href="/hydrogen/dashboard/scenarios" className="p-1.5 text-foreground/80 hover:text-primary transition-colors" title="Scenarios">
+            <Link href="https://hydrogen.nuvoxel.com/dashboard/scenarios" className="p-1.5 text-foreground/80 hover:text-primary transition-colors" title="Scenarios">
               <Layers className="h-5 w-5" />
             </Link>
           </div>
@@ -90,8 +90,8 @@ export function Navigation({ showClerkComponents = false }: NavigationProps) {
                     organizationSwitcherTrigger: "px-2 sm:px-3 py-1 sm:py-2 text-xs sm:text-sm"
                   }
                 }}
-                afterCreateOrganizationUrl="/hydrogen/dashboard"
-                afterSelectOrganizationUrl="/hydrogen/dashboard"
+                afterCreateOrganizationUrl="https://hydrogen.nuvoxel.com/dashboard"
+                afterSelectOrganizationUrl="https://hydrogen.nuvoxel.com/dashboard"
               />
             )}
             {showClerkComponents && layoutOverrides.showUserButton !== false && (

@@ -102,7 +102,7 @@ export default function ContactSalesPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild>
-                <Link href="/hydrogen">
+                <Link href="https://hydrogen.nuvoxel.com">
                   Explore Hydrogen
                 </Link>
               </Button>

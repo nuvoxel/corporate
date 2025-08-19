@@ -28,7 +28,7 @@ export function LandingPageNavigation() {
   return (
     <nav className="flex items-center justify-between px-4 sm:px-6 py-3 border-b bg-background/95 backdrop-blur-sm">
       {/* Logo */}
-      <Link href={isHydrogenRoute ? "/hydrogen/dashboard" : "/"}>
+      <Link href={isHydrogenRoute ? "https://hydrogen.nuvoxel.com/dashboard" : "/"}>
         {isHydrogenRoute ? (
           <HydrogenLogo className="h-7 sm:h-9 w-auto" animated={false} />
         ) : (
@@ -42,16 +42,16 @@ export function LandingPageNavigation() {
         <div className="hidden md:flex items-center gap-6">
           {isHydrogenRoute && isSignedIn ? (
             <>
-              <Link href="/hydrogen/dashboard" className="text-foreground/80 hover:text-primary transition-colors">
+              <Link href="https://hydrogen.nuvoxel.com/dashboard" className="text-foreground/80 hover:text-primary transition-colors">
                 Dashboard
               </Link>
-              <Link href="/hydrogen/dashboard/compare" className="text-foreground/80 hover:text-primary transition-colors">
+              <Link href="https://hydrogen.nuvoxel.com/dashboard/compare" className="text-foreground/80 hover:text-primary transition-colors">
                 Compare
               </Link>
-              <Link href="/hydrogen/dashboard/scenarios" className="text-foreground/80 hover:text-primary transition-colors">
+              <Link href="https://hydrogen.nuvoxel.com/dashboard/scenarios" className="text-foreground/80 hover:text-primary transition-colors">
                 Scenarios
               </Link>
-              <Link href="/hydrogen/dashboard/leaderboards" className="text-foreground/80 hover:text-primary transition-colors">
+              <Link href="https://hydrogen.nuvoxel.com/dashboard/leaderboards" className="text-foreground/80 hover:text-primary transition-colors">
                 Leaderboards
               </Link>
               <Link href="/company/pricing" className="text-foreground/80 hover:text-primary transition-colors">
@@ -63,7 +63,7 @@ export function LandingPageNavigation() {
             </>
           ) : isHydrogenRoute && !isSignedIn ? (
             <>
-              <Link href="/hydrogen/dashboard/leaderboards" className="text-foreground/80 hover:text-primary transition-colors">
+              <Link href="https://hydrogen.nuvoxel.com/dashboard/leaderboards" className="text-foreground/80 hover:text-primary transition-colors">
                 Leaderboards
               </Link>
               <Link href="/company/pricing" className="text-foreground/80 hover:text-primary transition-colors">
@@ -115,13 +115,13 @@ export function LandingPageNavigation() {
         {/* Mobile navigation icons - only for signed in users on hydrogen routes */}
         {isHydrogenRoute && isSignedIn && (
           <div className="flex md:hidden items-center gap-1">
-            <Link href="/hydrogen/dashboard" className="p-1.5 text-foreground/80 hover:text-primary transition-colors" title="Dashboard">
+            <Link href="https://hydrogen.nuvoxel.com/dashboard" className="p-1.5 text-foreground/80 hover:text-primary transition-colors" title="Dashboard">
               <BarChart3 className="h-5 w-5" />
             </Link>
-            <Link href="/hydrogen/dashboard/compare" className="p-1.5 text-foreground/80 hover:text-primary transition-colors" title="Compare">
+            <Link href="https://hydrogen.nuvoxel.com/dashboard/compare" className="p-1.5 text-foreground/80 hover:text-primary transition-colors" title="Compare">
               <GitCompare className="h-5 w-5" />
             </Link>
-            <Link href="/hydrogen/dashboard/scenarios" className="p-1.5 text-foreground/80 hover:text-primary transition-colors" title="Scenarios">
+            <Link href="https://hydrogen.nuvoxel.com/dashboard/scenarios" className="p-1.5 text-foreground/80 hover:text-primary transition-colors" title="Scenarios">
               <Layers className="h-5 w-5" />
             </Link>
           </div>
@@ -157,8 +157,8 @@ export function LandingPageNavigation() {
                           organizationSwitcherTrigger: "px-2 sm:px-3 py-1 sm:py-2 text-xs sm:text-sm"
                         }
                       }}
-                      afterCreateOrganizationUrl="/hydrogen/dashboard"
-                      afterSelectOrganizationUrl="/hydrogen/dashboard"
+                      afterCreateOrganizationUrl="https://hydrogen.nuvoxel.com/dashboard"
+                      afterSelectOrganizationUrl="https://hydrogen.nuvoxel.com/dashboard"
                     />
                   ) : (
                     <Dialog>
@@ -177,7 +177,7 @@ export function LandingPageNavigation() {
                           </DialogDescription>
                         </DialogHeader>
                         <CreateOrganization 
-                          afterCreateOrganizationUrl="/hydrogen/dashboard"
+                          afterCreateOrganizationUrl="https://hydrogen.nuvoxel.com/dashboard"
                           appearance={{
                             elements: {
                               rootBox: "w-full",
@@ -203,7 +203,7 @@ export function LandingPageNavigation() {
               />
             </div>
           ) : (
-            <Link href="/hydrogen/dashboard">
+            <Link href="https://hydrogen.nuvoxel.com/dashboard">
               <Button className="bg-primary hover:bg-primary/90">
                 Dashboard
               </Button>
@@ -217,7 +217,7 @@ export function LandingPageNavigation() {
             Start Free Trial
           </Button>
         ) : (
-          <Link href="/hydrogen">
+          <Link href="https://hydrogen.nuvoxel.com">
             <Button 
               className="bg-gradient-to-r from-[#163172] to-[#3A81C3] hover:from-[#0E1F4A] hover:to-[#2B5E98] text-white shadow-md hover:shadow-lg transition-all duration-200"
             >

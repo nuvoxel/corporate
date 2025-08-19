@@ -56,50 +56,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-
 
-      - name: Install dependencies
-        run: yarn install --immutable
-
-      - name: Run type checking
-        run: yarn tsc --noEmit
-
-      - name: Run linting
-        run: yarn lint
-
-      - name: Build application
-        run: yarn build
-        env:
-          # Environment
-          NODE_ENV: production
-          
-          # Application Insights (optional)
-          NEXT_PUBLIC_APPLICATIONINSIGHTS_CONNECTION_STRING: ${{ secrets.NEXT_PUBLIC_APPLICATIONINSIGHTS_CONNECTION_STRING }}
-
-      - name: Validate build output
-        run: |
-          echo "Validating build output..."
-          if [ ! -d ".next" ]; then
-            echo "Error: .next directory not found!"
-            exit 1
-          fi
-          if [ ! -f ".next/BUILD_ID" ]; then
-            echo "Error: Build ID not found!"
-            exit 1
-          fi
-          echo "Build ID: $(cat .next/BUILD_ID)"
-          echo "Build output validated successfully"
-
-      - name: Prepare standalone deployment
-        run: |
-          echo "Preparing standalone deployment..."
-          if [ -d ".next/standalone" ]; then
-            echo "Standalone build detected"
-            cp -r public .next/standalone/
-            cp -r .next/static .next/standalone/.next/
-            echo "Standalone preparation complete"
-          else
-            echo "Note: No standalone output found, using standard build"
-          fi
-
       - name: Deploy to Azure Static Web Apps
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
@@ -110,7 +66,7 @@ jobs:
           app_location: "/"
           api_location: ""
           output_location: "out"
-          skip_app_build: true
+          skip_app_build: false
           # For production deployment
           production_branch: "main"
         env:

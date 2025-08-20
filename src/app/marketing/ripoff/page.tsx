@@ -28,7 +28,7 @@ export default function RipoffPage() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                   <Button size="lg" asChild className="bg-orange-600 hover:bg-orange-700 text-white">
-                    <Link href="/dashboard">
+                    <Link href="https://hydrogen.nuvoxel.com">
                       See The Real Prices
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
@@ -64,16 +64,16 @@ export default function RipoffPage() {
       </section>
 
       {/* The Tricks Section */}
-      <section id="truth" className="py-20 bg-gray-50">
+      <section id="truth" className="py-20 bg-gray-50 dark:bg-slate-900">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
               Their Dirty Little Secrets
             </h2>
             <div className="grid md:grid-cols-2 gap-8">
-              <Card>
+              <Card className="bg-white dark:bg-slate-800 border-gray-200 dark:border-gray-700">
                 <CardHeader>
-                  <Lock className="h-8 w-8 text-red-500 mb-2" />
+                  <Lock className="h-8 w-8 text-red-500 dark:text-red-400 mb-2" />
                   <CardTitle>Hidden Pricing Complexity</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -90,9 +90,9 @@ export default function RipoffPage() {
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="bg-white dark:bg-slate-800 border-gray-200 dark:border-gray-700">
                 <CardHeader>
-                  <Eye className="h-8 w-8 text-red-500 mb-2" />
+                  <Eye className="h-8 w-8 text-red-500 dark:text-red-400 mb-2" />
                   <CardTitle>Deliberate Comparison Barriers</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -113,14 +113,14 @@ export default function RipoffPage() {
       </section>
 
       {/* The Lock-in Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-slate-900">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
               The Ecosystem Trap
             </h2>
             <div className="max-w-3xl mx-auto space-y-6">
-              <Card>
+              <Card className="bg-white dark:bg-slate-800 border-gray-200 dark:border-gray-700">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-3">Step 1: The Free Credits</h3>
                   <p className="text-muted-foreground">
@@ -130,7 +130,7 @@ export default function RipoffPage() {
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="bg-white dark:bg-slate-800 border-gray-200 dark:border-gray-700">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-3">Step 2: The Proprietary Services</h3>
                   <p className="text-muted-foreground">
@@ -140,7 +140,7 @@ export default function RipoffPage() {
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="bg-white dark:bg-slate-800 border-gray-200 dark:border-gray-700">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-3">Step 3: The Price Hikes</h3>
                   <p className="text-muted-foreground">
@@ -155,7 +155,7 @@ export default function RipoffPage() {
       </section>
 
       {/* The Numbers Section */}
-      <section className="py-20 bg-gray-900 text-white">
+      <section className="py-20 bg-gradient-to-br from-gray-900 to-slate-900 dark:from-black dark:to-gray-900 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-12">
@@ -183,7 +183,7 @@ export default function RipoffPage() {
             </div>
             
             {/* Record Profits Section */}
-            <Card className="bg-gradient-to-r from-orange-900/50 to-red-900/50 border-orange-700 mb-8">
+            <Card className="bg-gradient-to-r from-orange-900/50 to-red-900/50 dark:from-orange-950/30 dark:to-red-950/30 border-orange-700 dark:border-orange-800 mb-8">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold text-orange-400 mb-4">Record Profits in a &quot;Commodity&quot; Business</h3>
                 <p className="text-lg text-gray-200 mb-6">
@@ -218,10 +218,10 @@ export default function RipoffPage() {
               </CardContent>
             </Card>
             
-            <Card className="bg-gray-800 border-gray-700">
+            <Card className="bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-700">
               <CardContent className="p-6">
-                <p className="text-xl text-gray-300">
-                  <strong className="text-white">&quot;The house always wins&quot;</strong> - That&apos;s their 
+                <p className="text-xl text-gray-800 dark:text-gray-300">
+                  <strong className="text-gray-900 dark:text-white">&quot;The house always wins&quot;</strong> - That&apos;s their 
                   business model. Complex pricing ensures you&apos;ll always pay more than you planned.
                 </p>
               </CardContent>
@@ -231,14 +231,14 @@ export default function RipoffPage() {
       </section>
 
       {/* The Broken Promise Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-slate-900">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
               The Broken Promise of &quot;Economies of Scale&quot;
             </h2>
             <div className="grid md:grid-cols-2 gap-8 mb-12">
-              <Card>
+              <Card className="bg-white dark:bg-slate-800 border-gray-200 dark:border-gray-700">
                 <CardHeader>
                   <CardTitle className="text-xl">What They Sold You</CardTitle>
                 </CardHeader>
@@ -256,7 +256,7 @@ export default function RipoffPage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-orange-500">
+              <Card className="border-2 border-orange-500 dark:border-orange-600 bg-orange-50/50 dark:bg-orange-950/20">
                 <CardHeader>
                   <CardTitle className="text-xl text-orange-600">The Reality</CardTitle>
                 </CardHeader>
@@ -313,7 +313,7 @@ export default function RipoffPage() {
       </section>
 
       {/* Solution Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-slate-50 dark:from-slate-950 dark:via-slate-950 dark:to-slate-950">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
@@ -364,14 +364,14 @@ export default function RipoffPage() {
       </section>
 
       {/* Examples Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-slate-50 dark:from-slate-950 dark:via-slate-950 dark:to-slate-950">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-12">
               Real Examples of the Ripoff
             </h2>
             <div className="space-y-6">
-              <Card>
+              <Card className="bg-white dark:bg-slate-800 border-gray-200 dark:border-gray-700">
                 <CardHeader>
                   <CardTitle>The &quot;Equivalent&quot; Instance Scam</CardTitle>
                 </CardHeader>
@@ -387,7 +387,7 @@ export default function RipoffPage() {
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="bg-white dark:bg-slate-800 border-gray-200 dark:border-gray-700">
                 <CardHeader>
                   <CardTitle>The Egress Fee Trap</CardTitle>
                 </CardHeader>
@@ -403,7 +403,7 @@ export default function RipoffPage() {
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="bg-white dark:bg-slate-800 border-gray-200 dark:border-gray-700">
                 <CardHeader>
                   <CardTitle>The Support Tax</CardTitle>
                 </CardHeader>
@@ -434,13 +434,13 @@ export default function RipoffPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-orange-600 hover:bg-gray-100" asChild>
-              <Link href="/dashboard">
+              <Link href="https://hydrogen.nuvoxel.com">
                 Start Saving Now
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
             <Button size="lg" variant="outline" className="border-white/50 bg-white/10 text-white hover:bg-white/20 hover:border-white" asChild>
-              <Link href="/pricing">
+              <Link href="/company/pricing">
                 View Our Transparent Pricing
               </Link>
             </Button>

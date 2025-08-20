@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Use static export for Azure Static Web Apps
-  output: 'export',
+  // Use standalone output for server deployment
+  output: 'standalone',
   images: {
     unoptimized: true,
   },
@@ -10,6 +10,31 @@ const nextConfig = {
   // Enable experimental features for better performance
   experimental: {
     optimizePackageImports: ['lucide-react', '@radix-ui/react-icons']
+  },
+  // Redirects for alternate domain routes
+  async redirects() {
+    return [
+      {
+        source: '/ripoff',
+        destination: '/marketing/ripoff',
+        permanent: true,
+      },
+      {
+        source: '/resale',
+        destination: '/marketing/resale',
+        permanent: true,
+      },
+      {
+        source: '/tags',
+        destination: '/marketing/tags',
+        permanent: true,
+      },
+      {
+        source: '/poc',
+        destination: '/marketing/poc',
+        permanent: true,
+      },
+    ]
   }
 }
 

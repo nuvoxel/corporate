@@ -73,10 +73,10 @@ export default function ContactSalesPage() {
           </div>
 
           {/* Enterprise Section */}
-          <Card className="bg-primary text-white">
+          <Card className="bg-gradient-to-br from-primary to-blue-600 text-white">
             <CardHeader>
-              <CardTitle className="text-2xl">Enterprise Solutions</CardTitle>
-              <CardDescription className="text-white/80">
+              <CardTitle className="text-2xl text-white">Enterprise Solutions</CardTitle>
+              <CardDescription className="text-white/90">
                 Looking for custom pricing, dedicated support, or specific compliance requirements?
               </CardDescription>
             </CardHeader>

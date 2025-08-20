@@ -5,6 +5,13 @@ import { Button } from '@/components/ui/button'
 import { NuVoxelLogo } from './NuVoxelLogo'
 import { usePathname } from 'next/navigation'
 import ThemeSwitcher from './ThemeSwitcher'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
+import { ChevronDown } from 'lucide-react'
 
 export function LandingPageNavigation() {
   const pathname = usePathname()
@@ -13,7 +20,7 @@ export function LandingPageNavigation() {
   return (
     <nav className="flex items-center justify-between px-4 sm:px-6 py-3 border-b bg-background/95 backdrop-blur-sm">
       {/* Logo */}
-      <Link href="/">
+      <Link href="/" className="cursor-pointer">
         <NuVoxelLogo className="h-7 sm:h-9 w-auto" variant="complete" />
       </Link>
 
@@ -21,43 +28,44 @@ export function LandingPageNavigation() {
       <div className="flex items-center gap-6">
         {/* Main navigation */}
         <div className="hidden md:flex items-center gap-6">
-          {isMainLandingPage ? (
-            <>
-              <Link href="#products" className="text-foreground/80 hover:text-primary transition-colors">
-                Products
-              </Link>
-              <Link href="/company/pricing" className="text-foreground/80 hover:text-primary transition-colors">
-                Pricing
-              </Link>
-              <Link href="/marketing/ripoff" className="text-foreground/80 hover:text-primary transition-colors">
-                Cloud Ripoff
-              </Link>
-              <Link href="/marketing/shop" className="text-foreground/80 hover:text-primary transition-colors">
-                Shop
-              </Link>
-              <Link href="/company/contact" className="text-foreground/80 hover:text-primary transition-colors">
-                Contact Us
-              </Link>
-            </>
-          ) : (
-            <>
-              <Link href="/#products" className="text-foreground/80 hover:text-primary transition-colors">
-                Products
-              </Link>
-              <Link href="/company/pricing" className="text-foreground/80 hover:text-primary transition-colors">
-                Pricing
-              </Link>
-              <Link href="/marketing/ripoff" className="text-foreground/80 hover:text-primary transition-colors">
-                Cloud Ripoff
-              </Link>
-              <Link href="/marketing/shop" className="text-foreground/80 hover:text-primary transition-colors">
-                Shop
-              </Link>
-              <Link href="/company/contact" className="text-foreground/80 hover:text-primary transition-colors">
-                Contact Us
-              </Link>
-            </>
-          )}
+          {/* Products Dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger className="flex items-center gap-1 text-foreground/80 hover:text-primary transition-colors">
+              Products
+              <ChevronDown className="h-3 w-3" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start">
+              <DropdownMenuItem asChild>
+                <a href="/#hydrogen" className="cursor-pointer">
+                  <div>
+                    <div className="font-semibold">Hydrogen</div>
+                    <div className="text-xs text-muted-foreground">Cloud Intelligence Platform</div>
+                  </div>
+                </a>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/marketing/resale" className="cursor-pointer">
+                  <div>
+                    <div className="font-semibold">Resale</div>
+                    <div className="text-xs text-muted-foreground">Enterprise Reuse</div>
+                  </div>
+                </Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+          
+          <Link href="/company/pricing" className="text-foreground/80 hover:text-primary transition-colors">
+            Pricing
+          </Link>
+          <Link href="/marketing/ripoff" className="text-foreground/80 hover:text-primary transition-colors">
+            Cloud Ripoff
+          </Link>
+          <a href="https://shop.nuvoxel.com" className="text-foreground/80 hover:text-primary transition-colors">
+            Shop
+          </a>
+          <Link href="/company/contact" className="text-foreground/80 hover:text-primary transition-colors">
+            Contact Us
+          </Link>
         </div>
 
         {/* Theme switcher and Hydrogen button */}

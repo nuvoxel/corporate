@@ -14,17 +14,20 @@ import {
   FileDown,
   AlertCircle,
   Users,
-  Zap
+  Zap,
+  Check,
+  ArrowRight
 } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { HydrogenLogo } from './HydrogenLogo'
+import { PricingTable } from './PricingTable'
 
 export default function PublicLandingPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="px-6 lg:px-8 py-16 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 text-white relative">
+      <section className="px-6 lg:px-8 py-16 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 dark:from-slate-950 dark:via-blue-950 dark:to-slate-900 text-white relative">
         <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
         <div className="relative z-10 max-w-7xl xl:max-w-[1320px] mx-auto">
           <div className="grid lg:grid-cols-2 gap-24 xl:gap-32 2xl:gap-40 items-center">
@@ -114,32 +117,32 @@ export default function PublicLandingPage() {
             {/* Dashboard Mockup Column */}
             <div className="relative">
               {/* Main Dashboard Card */}
-              <div className="bg-white rounded-2xl shadow-2xl p-6 transform rotate-3 hover:rotate-0 transition-transform duration-300">
+              <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl p-6 transform rotate-3 hover:rotate-0 transition-transform duration-300">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-lg font-semibold text-gray-800">Workload Comparison</h3>
-                  <span className="text-sm text-gray-500">8 vCPU, 32GB RAM</span>
+                  <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">Workload Comparison</h3>
+                  <span className="text-sm text-gray-500 dark:text-gray-400">8 vCPU, 32GB RAM</span>
                 </div>
                 <div className="space-y-3">
-                  <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
+                  <div className="flex justify-between items-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
                     <div>
-                      <span className="text-gray-700 font-medium">AWS EC2</span>
-                      <span className="text-xs text-gray-500 block">m6i.2xlarge</span>
+                      <span className="text-gray-700 dark:text-gray-200 font-medium">AWS EC2</span>
+                      <span className="text-xs text-gray-500 dark:text-gray-400 block">m6i.2xlarge</span>
                     </div>
-                    <span className="font-semibold text-green-600">$248/mo</span>
+                    <span className="font-semibold text-green-600 dark:text-green-400">$248/mo</span>
                   </div>
-                  <div className="flex justify-between items-center p-3 bg-orange-50 rounded-lg">
+                  <div className="flex justify-between items-center p-3 bg-orange-50 dark:bg-orange-900/20 rounded-lg">
                     <div>
-                      <span className="text-gray-700 font-medium">Azure VM</span>
-                      <span className="text-xs text-gray-500 block">D8s_v5</span>
+                      <span className="text-gray-700 dark:text-gray-200 font-medium">Azure VM</span>
+                      <span className="text-xs text-gray-500 dark:text-gray-400 block">D8s_v5</span>
                     </div>
-                    <span className="font-semibold text-red-600">$276/mo</span>
+                    <span className="font-semibold text-red-600 dark:text-red-400">$276/mo</span>
                   </div>
-                  <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
+                  <div className="flex justify-between items-center p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
                     <div>
-                      <span className="text-gray-700 font-medium">GCP Compute</span>
-                      <span className="text-xs text-gray-500 block">n2-standard-8</span>
+                      <span className="text-gray-700 dark:text-gray-200 font-medium">GCP Compute</span>
+                      <span className="text-xs text-gray-500 dark:text-gray-400 block">n2-standard-8</span>
                     </div>
-                    <span className="font-semibold text-green-600">$312/mo</span>
+                    <span className="font-semibold text-green-600 dark:text-green-400">$312/mo</span>
                   </div>
                 </div>
               </div>
@@ -153,14 +156,14 @@ export default function PublicLandingPage() {
               </div>
               
               {/* Bottom Right Card */}
-              <div className="absolute -bottom-6 right-0 bg-white rounded-xl shadow-lg p-4 transform rotate-6 hover:rotate-0 transition-transform duration-300">
+              <div className="absolute -bottom-6 right-0 bg-white dark:bg-slate-800 rounded-xl shadow-lg p-4 transform rotate-6 hover:rotate-0 transition-transform duration-300">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
-                    <TrendingUp className="w-4 h-4 text-green-600" />
+                  <div className="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center">
+                    <TrendingUp className="w-4 h-4 text-green-600 dark:text-green-400" />
                   </div>
                   <div>
-                    <div className="text-sm font-semibold text-gray-800">Performance Match</div>
-                    <div className="text-lg font-bold text-green-600">98%</div>
+                    <div className="text-sm font-semibold text-gray-800 dark:text-gray-200">Performance Match</div>
+                    <div className="text-lg font-bold text-green-600 dark:text-green-400">98%</div>
                   </div>
                 </div>
               </div>
@@ -170,35 +173,35 @@ export default function PublicLandingPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-white dark:bg-slate-900">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold mb-2 text-gray-900">50+</div>
-              <div className="text-sm text-gray-600">Cloud Services</div>
+              <div className="text-3xl font-bold mb-2 text-gray-900 dark:text-gray-100">50+</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">Cloud Services</div>
             </div>
             <div>
-              <div className="text-3xl font-bold mb-2 text-gray-900">24/7</div>
-              <div className="text-sm text-gray-600">Real-time Updates</div>
+              <div className="text-3xl font-bold mb-2 text-gray-900 dark:text-gray-100">24/7</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">Real-time Updates</div>
             </div>
             <div>
-              <div className="text-3xl font-bold mb-2 text-gray-900">$2M+</div>
-              <div className="text-sm text-gray-600">Savings Generated</div>
+              <div className="text-3xl font-bold mb-2 text-gray-900 dark:text-gray-100">$2M+</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">Savings Generated</div>
             </div>
             <div>
-              <div className="text-3xl font-bold mb-2 text-gray-900">10k+</div>
-              <div className="text-sm text-gray-600">Comparisons Daily</div>
+              <div className="text-3xl font-bold mb-2 text-gray-900 dark:text-gray-100">10k+</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">Comparisons Daily</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-16 bg-gray-50">
+      <section id="hydrogen" className="py-16 bg-gradient-to-br from-slate-50 via-blue-50 to-slate-50 dark:from-slate-950 dark:via-slate-950 dark:to-slate-950">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Why Teams Choose Hydrogen</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-gray-100">Why Teams Choose Hydrogen</h2>
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               Built by cloud architects, for cloud architects. The authoritative platform for transparent cloud cost analysis.
             </p>
           </div>
@@ -279,209 +282,18 @@ export default function PublicLandingPage() {
         </div>
       </section>
 
-      {/* Free vs Premium Features Section */}
-      <section className="py-20 bg-white">
+      {/* Pricing Section */}
+      <section className="py-20 bg-white dark:bg-slate-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Start Free, Upgrade When You&apos;re Ready</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Access powerful cloud comparison tools instantly. Upgrade for advanced analytics and team features.
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Simple, Transparent Pricing</h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+              Start free with powerful comparison tools. Upgrade when you need advanced features and team collaboration.
             </p>
           </div>
           
-          {/* Features Grid */}
-          <div className="max-w-6xl mx-auto mb-16">
-            <div className="grid lg:grid-cols-2 gap-12">
-              {/* Free Features */}
-              <div>
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="bg-green-100 rounded-full p-2">
-                    <Sparkles className="w-6 h-6 text-green-600" />
-                  </div>
-                  <h3 className="text-2xl font-bold">Free Forever</h3>
-                  <Badge variant="secondary" className="bg-green-100 text-green-700 border-green-200">
-                    No credit card required
-                  </Badge>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900">Unlimited Cloud Comparisons</p>
-                      <p className="text-sm text-gray-600">Compare services across AWS, Azure, GCP, and more</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900">Basic Workload Profiling</p>
-                      <p className="text-sm text-gray-600">Define requirements and match to optimal services</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900">Real-Time Pricing</p>
-                      <p className="text-sm text-gray-600">Up-to-date prices including hidden costs</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900">Export to Excel</p>
-                      <p className="text-sm text-gray-600">Download comparisons for offline analysis</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900">Community Benchmarks</p>
-                      <p className="text-sm text-gray-600">Access crowd-sourced performance data</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900">3 Saved Scenarios</p>
-                      <p className="text-sm text-gray-600">Save and revisit your comparisons</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Premium Features */}
-              <div>
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="bg-gradient-to-r from-blue-500 to-purple-500 rounded-full p-2">
-                    <Zap className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold">Premium</h3>
-                  <Badge className="bg-gradient-to-r from-blue-500 to-purple-500 text-white border-0">
-                    From $29/month
-                  </Badge>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900">Everything in Free, plus:</p>
-                      <p className="text-sm text-gray-600">All free features included</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900">Spend Intelligence Analytics</p>
-                      <p className="text-sm text-gray-600">Upload bills, analyze trends, project future costs</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900">Predictive Intelligence (AI)</p>
-                      <p className="text-sm text-gray-600">ML-powered recommendations and anomaly detection</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900">Unlimited Scenarios</p>
-                      <p className="text-sm text-gray-600">Save and organize unlimited comparisons</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900">Team Collaboration</p>
-                      <p className="text-sm text-gray-600">Share with unlimited team members</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900">API Access</p>
-                      <p className="text-sm text-gray-600">Integrate with your existing tools</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900">Priority Support</p>
-                      <p className="text-sm text-gray-600">Get help when you need it most</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Enterprise CTA */}
-          <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-8 text-center">
-            <h3 className="text-2xl font-bold mb-3">Need Enterprise Features?</h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Get dedicated infrastructure, custom integrations, SSO, compliance certifications, and more.
-            </p>
-            <Button variant="outline" className="border-2" asChild>
-              <Link href="/company/contact">
-                Contact Sales
-                <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </Link>
-            </Button>
-          </div>
+          {/* Dynamic Pricing Table */}
+          <PricingTable maxColumns={4} />
         </div>
       </section>
 
@@ -494,29 +306,31 @@ export default function PublicLandingPage() {
             Join thousands of teams making smarter cloud decisions with Hydrogen. 
             Start comparing costs and finding optimal configurations today.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link href="https://hydrogen.nuvoxel.com">
               <Button 
-                className="bg-white text-primary hover:bg-gray-100 from-white to-white hover:from-gray-100 hover:to-gray-100 font-bold shadow-lg"
+                size="lg"
+                className="bg-white text-slate-900 hover:bg-gray-100 font-bold shadow-lg px-8"
               >
                 Get Started Free
               </Button>
             </Link>
-            <Link href="/pricing">
+            <Link href="/company/pricing">
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="px-8 border-2 border-white text-white hover:bg-white hover:text-primary transition-all duration-200 font-semibold backdrop-blur-sm bg-white/10"
+                className="px-8 border-2 border-white text-white hover:bg-white hover:text-slate-900 transition-all duration-200 font-semibold backdrop-blur-sm bg-white/10"
               >
                 View Pricing
               </Button>
             </Link>
           </div>
           <p className="mt-6 text-sm opacity-80">
-            No credit card required • Free forever for small teams
+            No credit card required
           </p>
         </div>
       </section>
+
     </>
   )
 }

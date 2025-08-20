@@ -28,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body className={`${amiko.variable} font-amiko bg-background text-foreground`}>
         <Providers>
           <NavigationWrapper />

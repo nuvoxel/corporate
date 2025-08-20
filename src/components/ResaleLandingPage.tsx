@@ -20,7 +20,7 @@ export default function ResaleLandingPage() {
             Complete your cloud journey with confidence. We provide end-to-end lifecycle management for your datacenter equipment, helping you transition from on-premise to cloud while maximizing asset value and ensuring responsible disposal.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-emerald-900 hover:bg-gray-100 font-semibold px-8 py-3" asChild>
+            <Button size="lg" className="bg-white dark:bg-slate-100 text-emerald-900 hover:bg-gray-100 dark:hover:bg-gray-200 font-semibold px-8 py-3" asChild>
               <a href="https://shop.nuvoxel.com">
                 Visit Our Store
                 <Store className="ml-2 h-4 w-4" />
@@ -37,30 +37,30 @@ export default function ResaleLandingPage() {
       </section>
 
       {/* Key Services */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-slate-50 dark:from-slate-950 dark:via-slate-950 dark:to-slate-950">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">
             Supporting Your Cloud Transformation Journey
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
+            <div className="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md text-center">
               <Server className="h-10 w-10 text-emerald-600 mb-4 mx-auto" />
               <h3 className="text-xl font-semibold mb-2">Pre-Migration Assessment</h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 dark:text-gray-400">
                 Evaluate your infrastructure to identify equipment for cloud replacement, on-premise retention for hybrid scenarios, resale, or recycling
               </p>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
+            <div className="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md text-center">
               <Package className="h-10 w-10 text-emerald-600 mb-4 mx-auto" />
               <h3 className="text-xl font-semibold mb-2">Upgrade & Optimize</h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 dark:text-gray-400">
                 Extend equipment life with new parts and upgrades, or maximize ROI through our liquidation channels
               </p>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
+            <div className="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md text-center">
               <Recycle className="h-10 w-10 text-emerald-600 mb-4 mx-auto" />
               <h3 className="text-xl font-semibold mb-2">Responsible Disposal</h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 dark:text-gray-400">
                 Complete your cloud journey responsibly with our California permitted e-waste recycling services
               </p>
             </div>
@@ -69,7 +69,7 @@ export default function ResaleLandingPage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-slate-900">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">
             End-to-End Cloud Migration Support
@@ -77,7 +77,7 @@ export default function ResaleLandingPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h3 className="text-2xl font-semibold mb-4">Bridging the Gap Between Legacy and Cloud</h3>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-600 dark:text-gray-400 mb-6">
                 Not everything needs to move to the cloud. We help you make smart decisions about your existing infrastructure - 
                 identifying equipment to repurpose for hybrid cloud deployments, non-migratable workloads, or cost-effective 
                 on-premise capacity using fully depreciated assets:
@@ -85,27 +85,27 @@ export default function ResaleLandingPage() {
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <ShieldCheck className="h-5 w-5 text-emerald-600 mr-3 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-600">Strategic planning for equipment lifecycle during cloud transition</span>
+                  <span className="text-gray-600 dark:text-gray-400">Strategic planning for equipment lifecycle during cloud transition</span>
                 </li>
                 <li className="flex items-start">
                   <ShieldCheck className="h-5 w-5 text-emerald-600 mr-3 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-600">Identify equipment to repurpose for hybrid cloud or workloads that can&apos;t migrate</span>
+                  <span className="text-gray-600 dark:text-gray-400">Identify equipment to repurpose for hybrid cloud or workloads that can&apos;t migrate</span>
                 </li>
                 <li className="flex items-start">
                   <ShieldCheck className="h-5 w-5 text-emerald-600 mr-3 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-600">Turn decommissioned infrastructure into funding for cloud initiatives</span>
+                  <span className="text-gray-600 dark:text-gray-400">Turn decommissioned infrastructure into funding for cloud initiatives</span>
                 </li>
                 <li className="flex items-start">
                   <ShieldCheck className="h-5 w-5 text-emerald-600 mr-3 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-600">Upgrade existing equipment with new parts to extend useful life</span>
+                  <span className="text-gray-600 dark:text-gray-400">Upgrade existing equipment with new parts to extend useful life</span>
                 </li>
                 <li className="flex items-start">
                   <ShieldCheck className="h-5 w-5 text-emerald-600 mr-3 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-600">Leverage depreciated assets for cost-effective hybrid capacity</span>
+                  <span className="text-gray-600 dark:text-gray-400">Leverage depreciated assets for cost-effective hybrid capacity</span>
                 </li>
                 <li className="flex items-start">
                   <ShieldCheck className="h-5 w-5 text-emerald-600 mr-3 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-600">Ensure data security and regulatory compliance throughout the process</span>
+                  <span className="text-gray-600 dark:text-gray-400">Ensure data security and regulatory compliance throughout the process</span>
                 </li>
               </ul>
             </div>
@@ -117,7 +117,7 @@ export default function ResaleLandingPage() {
                     <Store className="h-5 w-5 mr-2 text-emerald-600" />
                     Quick Transactions via Shopify
                   </h5>
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">
                     Browse our inventory of refurbished equipment, new parts, and upgrade components
                   </p>
                 </div>
@@ -126,7 +126,7 @@ export default function ResaleLandingPage() {
                     <Truck className="h-5 w-5 mr-2 text-emerald-600" />
                     Enterprise Partnerships
                   </h5>
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">
                     Work with our team for comprehensive datacenter decommissioning and cloud migration support
                   </p>
                 </div>
@@ -144,7 +144,7 @@ export default function ResaleLandingPage() {
             From initial assessment to final recycling, we provide the missing piece in your cloud transformation strategy
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-emerald-900 hover:bg-gray-100" asChild>
+            <Button size="lg" className="bg-white dark:bg-slate-100 text-emerald-900 hover:bg-gray-100 dark:hover:bg-gray-200" asChild>
               <Link href="/company/contact">
                 Get a Quote
                 <ArrowRight className="ml-2 h-4 w-4" />

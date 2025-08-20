@@ -29,7 +29,7 @@ export default function TagsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild className="bg-blue-600 hover:bg-blue-700 text-white">
-                <Link href="/dashboard">
+                <Link href="https://hydrogen.nuvoxel.com">
                   Start Tag Analysis
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
@@ -221,13 +221,13 @@ export default function TagsPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="secondary" asChild>
-              <Link href="/dashboard">
+              <Link href="https://hydrogen.nuvoxel.com">
                 Analyze Your Tags Now
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
             <Button size="lg" variant="outline" className="bg-transparent text-white border-white hover:bg-white/10" asChild>
-              <Link href="/pricing">
+              <Link href="/company/pricing">
                 View Pricing
               </Link>
             </Button>

@@ -42,8 +42,8 @@ export function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/resale" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                    Resale
+                  <Link href="/marketing/resale" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                    Cloud Resale
                   </Link>
                 </li>
                 <li>
@@ -66,17 +66,17 @@ export function Footer() {
                 {/* First column - 3 short entries */}
                 <ul className="space-y-2">
                   <li>
-                    <Link href="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap">
+                    <Link href="/legal/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap">
                       Terms
                     </Link>
                   </li>
                   <li>
-                    <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap">
+                    <Link href="/legal/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap">
                       Privacy
                     </Link>
                   </li>
                   <li>
-                    <Link href="/cookies" className="text-sm text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap">
+                    <Link href="/legal/cookies" className="text-sm text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap">
                       Cookies
                     </Link>
                   </li>
@@ -84,12 +84,12 @@ export function Footer() {
                 {/* Second column - 2 long entries */}
                 <ul className="space-y-2 ml-8">
                   <li>
-                    <Link href="/dpa" className="text-sm text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap">
+                    <Link href="/legal/dpa" className="text-sm text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap">
                       Data Processing Agreement
                     </Link>
                   </li>
                   <li>
-                    <Link href="/do-not-sell" className="text-sm text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap">
+                    <Link href="/legal/do-not-sell" className="text-sm text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap">
                       Do Not Sell/Share My Info
                     </Link>
                   </li>
@@ -108,6 +108,15 @@ export function Footer() {
                 aria-label="Blog"
               >
                 <BookOpen className="h-5 w-5" />
+              </Link>
+              <Link 
+                href="https://x.com/nuvoxel" 
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                aria-label="X"
+              >
+                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
               </Link>
               <Link 
                 href="https://www.linkedin.com/company/nuvoxel/" 

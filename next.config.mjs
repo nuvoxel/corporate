@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Azure Static Web Apps supports hybrid Next.js apps with standalone output
-  output: 'standalone',
+  // Use static export for Azure Static Web Apps
+  output: 'export',
   images: {
     unoptimized: true,
   },

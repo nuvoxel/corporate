@@ -34,7 +34,7 @@ export default function PublicLandingPage() {
             {/* Content Column */}
             <div className="text-center lg:text-left lg:pr-8 xl:pr-12 overflow-visible">
               <div className="mb-10 -mt-6">
-                <HydrogenLogo className="h-32 md:h-36 lg:h-40 w-auto mx-auto lg:mx-0" aria-label="Hydrogen - Cloud Intelligence" animated={true} variant="dark" />
+                <HydrogenLogo className="h-32 md:h-36 lg:h-40 w-auto mx-auto lg:mx-0" aria-label="Hydrogen - Cloud Intelligence" animated={true} variant="auto" />
               </div>
               
               <div className="mb-8">

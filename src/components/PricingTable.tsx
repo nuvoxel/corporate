@@ -51,9 +51,6 @@ export function PricingTable({
                 </Link>
               </Button>
             </div>
-            <p className="text-sm text-muted-foreground">
-              Free tier available • No credit card required
-            </p>
           </CardContent>
         </Card>
       </div>
@@ -92,9 +89,6 @@ export function PricingTable({
                 </Link>
               </Button>
             </div>
-            <p className="text-sm text-muted-foreground">
-              Free tier available • No credit card required
-            </p>
           </CardContent>
         </Card>
       </div>
@@ -287,28 +281,6 @@ export function PricingTable({
           )
         })}
       </div>
-
-      {/* Service Provider CTA */}
-      {visiblePlans.some(p => p.id === 'enterprise') && (
-        <Card className="mt-12 bg-gradient-to-r from-purple-900/10 to-blue-900/10 border-2 border-purple-500/20">
-          <CardHeader>
-            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
-              <div>
-                <CardTitle className="text-3xl mb-2">Service Providers</CardTitle>
-                <CardDescription className="text-lg">
-                  White label solutions, higher API limits, and benchmark submission capabilities
-                </CardDescription>
-              </div>
-              <Button asChild size="lg" className="lg:min-w-[200px]">
-                <Link href="/company/contact">
-                  Contact Us
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </div>
-          </CardHeader>
-        </Card>
-      )}
 
       {/* Feature Comparison Table */}
       {showFeatureComparison && visiblePlans.length > 1 && data.features && (

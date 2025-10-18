@@ -43,9 +43,9 @@
     /* Dark mode - NuVoxel brand colors adapted */
     --background: 221 39% 11%; /* #0F172A - Near Black */
     --foreground: 0 0% 100%; /* #FFFFFF */
-    --card: 222 33% 16%; /* #1E293B - Dark Navy */
+    --card: 215 28% 17%; /* #1E293B - Slate 800 */
     --card-foreground: 0 0% 100%; /* #FFFFFF */
-    --popover: 222 33% 16%; /* #1E293B - Dark Navy */
+    --popover: 215 28% 17%; /* #1E293B - Slate 800 */
     --popover-foreground: 0 0% 100%; /* #FFFFFF */
     
     /* Brand colors brightened for dark mode */

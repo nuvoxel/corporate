@@ -2,6 +2,7 @@
 
 import { PricingTable } from '@/components/PricingTable'
 import { Card, CardContent } from '@/components/ui/card'
+import faqsData from '@/data/faqs.json'
 
 export default function PricingPage() {
   return (
@@ -26,54 +27,14 @@ export default function PricingPage() {
         <div className="mt-20">
           <h3 className="text-3xl font-bold mb-8 text-center">Frequently Asked Questions</h3>
           <div className="max-w-3xl mx-auto space-y-6">
-            <Card>
-              <CardContent className="p-6">
-                <h4 className="font-semibold mb-2">How is this different from cloud cost optimization tools?</h4>
-                <p className="text-muted-foreground">
-                  Hydrogen augments cost optimization tools by providing upfront intelligence across multiple providers and services. We answer &quot;Where can I run this workload in the best way possible?&quot; before you deploy, helping you make informed decisions across all major cloud providers.
-                </p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="p-6">
-                <h4 className="font-semibold mb-2">Can I switch between plans?</h4>
-                <p className="text-muted-foreground">
-                  Yes! You can upgrade or downgrade your plan at any time. Changes take effect at the next billing cycle, and we&apos;ll prorate any differences.
-                </p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="p-6">
-                <h4 className="font-semibold mb-2">What&apos;s included in the 7-day Max trial?</h4>
-                <p className="text-muted-foreground">
-                  The trial includes full access to all Max features including API access, multi-currency support, and advanced template pricing. No credit card required to start.
-                </p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="p-6">
-                <h4 className="font-semibold mb-2">What happens after my Max trial ends?</h4>
-                <p className="text-muted-foreground">
-                  After your 7-day trial, you&apos;ll automatically move to the Free tier unless you choose to subscribe. No credit card is required for the trial, and you won&apos;t be charged unless you actively upgrade.
-                </p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="p-6">
-                <h4 className="font-semibold mb-2">Is there a discount for annual billing?</h4>
-                <p className="text-muted-foreground">
-                  Yes! Annual billing saves you 20% compared to monthly billing. You can switch between monthly and annual billing at any time from your account settings.
-                </p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="p-6">
-                <h4 className="font-semibold mb-2">Can I purchase through cloud marketplaces?</h4>
-                <p className="text-muted-foreground">
-                  Yes! Many of our plans are available through cloud marketplaces, allowing you to consolidate billing with your existing cloud spend. Click on the marketplace badges on each plan to view the listing. We&apos;re continuously adding support for more marketplaces.
-                </p>
-              </CardContent>
-            </Card>
+            {faqsData.map((faq) => (
+              <Card key={faq.id}>
+                <CardContent className="p-6">
+                  <h4 className="font-semibold mb-2">{faq.question}</h4>
+                  <p className="text-muted-foreground">{faq.answer}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </div>

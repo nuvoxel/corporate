@@ -1,0 +1,39 @@
+[
+  {
+    "id": "difference-from-cost-tools",
+    "question": "How is this different from cloud cost optimization tools?",
+    "answer": "Hydrogen augments cost optimization tools by providing upfront intelligence across multiple providers and services. We answer \"Where can I run this workload in the best way possible?\" before you deploy, helping you make informed decisions across all major cloud providers.",
+    "order": 1
+  },
+  {
+    "id": "switch-plans",
+    "question": "Can I switch between plans?",
+    "answer": "Yes! You can upgrade or downgrade your plan at any time. Changes take effect at the next billing cycle, and we'll prorate any differences.",
+    "order": 2
+  },
+  {
+    "id": "max-trial",
+    "question": "What's included in the 7-day Max trial?",
+    "answer": "The trial includes full access to all Max features including API access, multi-currency support, and advanced template pricing. No credit card required to start.",
+    "order": 3
+  },
+  {
+    "id": "after-trial",
+    "question": "What happens after my Max trial ends?",
+    "answer": "After your 7-day trial, you'll automatically move to the Free tier unless you choose to subscribe. No credit card is required for the trial, and you won't be charged unless you actively upgrade.",
+    "order": 4
+  },
+  {
+    "id": "annual-discount",
+    "question": "Is there a discount for annual billing?",
+    "answer": "Yes! Annual billing saves you 20% compared to monthly billing. You can switch between monthly and annual billing at any time from your account settings.",
+    "order": 5
+  },
+  {
+    "id": "cloud-marketplaces",
+    "question": "Can I purchase through cloud marketplaces?",
+    "answer": "Yes! Many of our plans are available through cloud marketplaces, allowing you to consolidate billing with your existing cloud spend. We're continuously adding support for more marketplaces.",
+    "order": 6
+  }
+]
+

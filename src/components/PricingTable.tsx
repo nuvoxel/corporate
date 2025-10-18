@@ -251,7 +251,6 @@ export function PricingTable({
                     {plan.trial && (
                       <div className="text-xs text-center text-muted-foreground">
                         {plan.trial.days}-day free trial
-                        {!plan.trial.requiresCard && " • No card required"}
                       </div>
                     )}
                     {plan.limits.users && plan.id === 'enterprise' && (

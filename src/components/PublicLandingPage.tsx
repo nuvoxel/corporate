@@ -86,7 +86,7 @@ export default function PublicLandingPage() {
                 </h2>
               </div>
               
-              <p className="text-xl text-gray-300 mb-10 max-w-2xl leading-relaxed">
+              <p className="text-xl text-gray-600 dark:text-gray-300 mb-10 max-w-2xl leading-relaxed">
                 Six intelligence types for smarter cloud decisions. Compare providers, analyze existing workloads, predict costs, and find optimal configurations across AWS, Azure, GCP and more.
               </p>
               

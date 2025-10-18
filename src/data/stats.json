@@ -1,0 +1,27 @@
+[
+  {
+    "id": "cloud-services",
+    "value": "50+",
+    "label": "Cloud Services",
+    "order": 1
+  },
+  {
+    "id": "real-time-updates",
+    "value": "24/7",
+    "label": "Real-time Updates",
+    "order": 2
+  },
+  {
+    "id": "savings-generated",
+    "value": "$2M+",
+    "label": "Savings Generated",
+    "order": 3
+  },
+  {
+    "id": "comparisons-daily",
+    "value": "10k+",
+    "label": "Comparisons Daily",
+    "order": 4
+  }
+]
+

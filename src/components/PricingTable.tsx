@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Check, ArrowRight, Loader2 } from 'lucide-react'
-import { usePricing, formatPrice, type Plan, type Feature, type MarketplaceListing } from '@/hooks/usePricing'
+import { usePricing, formatPrice, type Plan, type Feature } from '@/hooks/usePricing'
 import { cn } from '@/lib/utils'
 
 interface PricingTableProps {
@@ -160,39 +160,6 @@ export function PricingTable({
     return validVariants.includes(variant) ? variant as any : "outline"
   }
 
-  // Get marketplace info - supports both old and new format
-  const getMarketplaces = (plan: Plan): MarketplaceListing[] => {
-    // Use new format if available
-    if (plan.marketplaces && Array.isArray(plan.marketplaces)) {
-      return plan.marketplaces
-    }
-    
-    // Fall back to old format for backwards compatibility
-    if (plan.marketplaceAvailability && Array.isArray(plan.marketplaceAvailability)) {
-      return plan.marketplaceAvailability.map(id => ({
-        marketplaceId: id,
-        listingUrl: undefined
-      }))
-    }
-    
-    return []
-  }
-
-  // Get marketplace display name and icon
-  const getMarketplaceInfo = (marketplaceId: string) => {
-    const marketplaces: Record<string, { name: string; shortName: string; color: string }> = {
-      azure: { name: 'Azure Marketplace', shortName: 'Azure', color: 'bg-blue-500' },
-      aws: { name: 'AWS Marketplace', shortName: 'AWS', color: 'bg-orange-500' },
-      gcp: { name: 'Google Cloud Marketplace', shortName: 'GCP', color: 'bg-green-500' },
-      alibaba: { name: 'Alibaba Cloud Marketplace', shortName: 'Alibaba', color: 'bg-orange-600' }
-    }
-    return marketplaces[marketplaceId] || { 
-      name: marketplaceId, 
-      shortName: marketplaceId, 
-      color: 'bg-gray-500' 
-    }
-  }
-
   return (
     <div className={className}>
       {/* Billing Cycle Toggle */}
@@ -233,7 +200,6 @@ export function PricingTable({
         {visiblePlans.map(plan => {
           const price = getPrice(plan)
           const displayFeatures = getPlanFeatures(plan)
-          const marketplaces = getMarketplaces(plan)
 
           return (
             <Card 
@@ -302,56 +268,6 @@ export function PricingTable({
                         )}
                       </div>
                     )}
-                  </div>
-                )}
-
-                {/* Marketplace Badges */}
-                {marketplaces.length > 0 && (
-                  <div className="mb-3 space-y-2">
-                    {marketplaces.map(marketplace => {
-                      const info = getMarketplaceInfo(marketplace.marketplaceId)
-                      
-                      if (marketplace.comingSoon) {
-                        return (
-                          <Badge 
-                            key={marketplace.marketplaceId}
-                            variant="outline" 
-                            className="text-xs w-full justify-center text-muted-foreground"
-                          >
-                            {info.shortName} Marketplace - Coming Soon
-                          </Badge>
-                        )
-                      }
-                      
-                      if (marketplace.listingUrl) {
-                        return (
-                          <a
-                            key={marketplace.marketplaceId}
-                            href={marketplace.listingUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="block"
-                          >
-                            <Badge 
-                              variant="secondary" 
-                              className="text-xs w-full justify-center hover:bg-secondary/80 cursor-pointer transition-colors"
-                            >
-                              Available on {info.shortName} Marketplace →
-                            </Badge>
-                          </a>
-                        )
-                      }
-                      
-                      return (
-                        <Badge 
-                          key={marketplace.marketplaceId}
-                          variant="secondary" 
-                          className="text-xs w-full justify-center"
-                        >
-                          Available on {info.shortName} Marketplace
-                        </Badge>
-                      )
-                    })}
                   </div>
                 )}
 

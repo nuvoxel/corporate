@@ -22,6 +22,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { HydrogenLogo } from './HydrogenLogo'
 import { PricingTable } from './PricingTable'
+import statsData from '@/data/stats.json'
 
 export default function PublicLandingPage() {
   return (
@@ -176,22 +177,12 @@ export default function PublicLandingPage() {
       <section className="py-12 bg-white dark:bg-slate-900">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-3xl font-bold mb-2 text-gray-900 dark:text-gray-100">50+</div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">Cloud Services</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold mb-2 text-gray-900 dark:text-gray-100">24/7</div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">Real-time Updates</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold mb-2 text-gray-900 dark:text-gray-100">$2M+</div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">Savings Generated</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold mb-2 text-gray-900 dark:text-gray-100">10k+</div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">Comparisons Daily</div>
-            </div>
+            {statsData.map((stat) => (
+              <div key={stat.id}>
+                <div className="text-3xl font-bold mb-2 text-gray-900 dark:text-gray-100">{stat.value}</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

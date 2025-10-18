@@ -70,7 +70,7 @@ export default function PricingPage() {
               <CardContent className="p-6">
                 <h4 className="font-semibold mb-2">Can I purchase through cloud marketplaces?</h4>
                 <p className="text-muted-foreground">
-                  Yes! Many of our plans are available through cloud marketplaces, allowing you to consolidate billing with your existing cloud spend. Click on the marketplace badges on each plan to view the listing. We're continuously adding support for more marketplaces.
+                  Yes! Many of our plans are available through cloud marketplaces, allowing you to consolidate billing with your existing cloud spend. Click on the marketplace badges on each plan to view the listing. We&apos;re continuously adding support for more marketplaces.
                 </p>
               </CardContent>
             </Card>

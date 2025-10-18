@@ -36,12 +36,12 @@ export function LandingPageNavigation() {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start">
               <DropdownMenuItem asChild>
-                <a href="/#hydrogen" className="cursor-pointer">
+                <Link href="/#hydrogen" className="cursor-pointer">
                   <div>
                     <div className="font-semibold">Hydrogen</div>
                     <div className="text-xs text-muted-foreground">Cloud Intelligence Platform</div>
                   </div>
-                </a>
+                </Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

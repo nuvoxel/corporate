@@ -238,6 +238,16 @@
     animation: write-char 0.3s ease-out forwards;
     animation-delay: 2.2s;
   }
+
+  /* Strikethrough animation for hero */
+  @keyframes drawStrike {
+    0% {
+      stroke-dashoffset: 100;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
   
   /* Dark mode card improvements */
   .dark .card {

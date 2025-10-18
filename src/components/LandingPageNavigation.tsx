@@ -5,13 +5,6 @@ import { Button } from '@/components/ui/button'
 import { NuVoxelLogo } from './NuVoxelLogo'
 import { usePathname } from 'next/navigation'
 import ThemeSwitcher from './ThemeSwitcher'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
-import { ChevronDown } from 'lucide-react'
 
 export function LandingPageNavigation() {
   const pathname = usePathname()
@@ -28,24 +21,9 @@ export function LandingPageNavigation() {
       <div className="flex items-center gap-6">
         {/* Main navigation */}
         <div className="hidden md:flex items-center gap-6">
-          {/* Products Dropdown */}
-          <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-1 text-foreground/80 hover:text-primary transition-colors">
-              Products
-              <ChevronDown className="h-3 w-3" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="start">
-              <DropdownMenuItem asChild>
-                <Link href="/#hydrogen" className="cursor-pointer">
-                  <div>
-                    <div className="font-semibold">Hydrogen</div>
-                    <div className="text-xs text-muted-foreground">Cloud Intelligence Platform</div>
-                  </div>
-                </Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-          
+          <Link href="/#hydrogen" className="text-foreground/80 hover:text-primary transition-colors">
+            Hydrogen
+          </Link>
           <Link href="/company/pricing" className="text-foreground/80 hover:text-primary transition-colors">
             Pricing
           </Link>

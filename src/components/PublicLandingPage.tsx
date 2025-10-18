@@ -39,58 +39,47 @@ export default function PublicLandingPage() {
               
               <div className="mb-8">
                 <div className="relative block h-16">
-                  <svg 
-                    className="absolute left-1/2 -translate-x-1/2 md:translate-x-0 md:left-[18rem] lg:left-[22rem] w-32 h-16" 
-                    viewBox="0 0 140 60" 
-                    style={{ transform: 'rotate(-4deg)' }}
-                  >
-                    <text 
-                      x="5" 
-                      y="45" 
-                      fill="rgb(239, 68, 68)"
-                      fontSize="48"
-                      fontWeight="700"
-                      fontFamily="serif"
-                      style={{
-                        paintOrder: 'stroke fill',
-                        strokeWidth: '1px',
-                        stroke: 'rgb(239, 68, 68)',
-                        filter: 'url(#handwritten-filter)'
-                      }}
-                    >
-                      <tspan className="opacity-0 animate-write-char-1">E</tspan>
-                      <tspan className="opacity-0 animate-write-char-2">v</tspan>
-                      <tspan className="opacity-0 animate-write-char-3">e</tspan>
-                      <tspan className="opacity-0 animate-write-char-4">r</tspan>
-                      <tspan className="opacity-0 animate-write-char-5">y</tspan>
-                    </text>
-                    <defs>
-                      <filter id="handwritten-filter">
-                        <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" result="noise"/>
-                        <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" />
-                      </filter>
-                    </defs>
-                  </svg>
+                  <div className="absolute left-1/2 -translate-x-1/2 md:translate-x-0 md:left-[18rem] lg:left-[22rem] text-red-500 text-4xl md:text-5xl font-bold whitespace-nowrap" style={{ fontFamily: 'Comic Sans MS, cursive', transform: 'rotate(-5deg)' }}>
+                    <span className="inline-block opacity-0 animate-write-char-1">E</span>
+                    <span className="inline-block opacity-0 animate-write-char-2">v</span>
+                    <span className="inline-block opacity-0 animate-write-char-3">e</span>
+                    <span className="inline-block opacity-0 animate-write-char-4">r</span>
+                    <span className="inline-block opacity-0 animate-write-char-5">y</span>
+                  </div>
                 </div>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-slate-900 dark:text-white">
                   Choose Right{' '}
                   <span className="relative inline-block">
                     <span>the First</span>
-                    <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 40" preserveAspectRatio="none" style={{ willChange: 'transform' }}>
+                    <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 40" preserveAspectRatio="none">
                       <path 
                         d="M 2,22 Q 20,20 40,19 T 60,17 Q 80,15 98,12" 
-                        stroke="rgb(239, 68, 68)"
-                        strokeWidth="5"
+                        stroke="none"
                         fill="none"
                         strokeLinecap="round"
-                        strokeLinejoin="round"
-                        vectorEffect="non-scaling-stroke"
-                        style={{
-                          strokeDasharray: '100',
-                          strokeDashoffset: '100',
-                          animation: 'drawStrike 0.8s ease-out 0.5s forwards'
-                        }}
-                      />
+                      >
+                        <animate
+                          attributeName="stroke"
+                          values="none;rgb(239, 68, 68);rgb(239, 68, 68)"
+                          dur="0.8s"
+                          begin="0.5s"
+                          fill="freeze"
+                        />
+                        <animate
+                          attributeName="stroke-width"
+                          values="0;6;5"
+                          dur="0.8s"
+                          begin="0.5s"
+                          fill="freeze"
+                        />
+                        <animate
+                          attributeName="stroke-dasharray"
+                          values="0 100;100 0"
+                          dur="0.8s"
+                          begin="0.5s"
+                          fill="freeze"
+                        />
+                      </path>
                     </svg>
                   </span>
                   {' '}Time

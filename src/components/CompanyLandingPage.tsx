@@ -55,7 +55,7 @@ export default function CompanyLandingPage() {
                     <p className="text-sm font-semibold text-orange-900 dark:text-orange-100">
                       Did you know? Cloud providers enjoy 40% profit margins while you struggle with surprise bills.
                     </p>
-                    <Link href="/ripoff" className="text-sm text-orange-700 dark:text-orange-400 hover:text-orange-800 dark:hover:text-orange-300 underline mt-1 inline-block">
+                    <Link href="/marketing/ripoff" className="text-sm text-orange-700 dark:text-orange-400 hover:text-orange-800 dark:hover:text-orange-300 underline mt-1 inline-block">
                       Learn about the cloud pricing ripoff →
                     </Link>
                   </div>

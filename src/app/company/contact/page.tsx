@@ -107,7 +107,7 @@ export default function ContactSalesPage() {
                 </Link>
               </Button>
               <Button variant="outline" asChild>
-                <Link href="/pricing">
+                <Link href="/company/pricing">
                   View Pricing
                 </Link>
               </Button>

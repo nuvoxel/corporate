@@ -104,7 +104,7 @@ export default function PublicLandingPage() {
                   className="text-white hover:bg-white/10 gap-3 px-6 py-4 text-lg"
                   asChild
                 >
-                  <Link href="/leaderboards">
+                  <Link href="https://hydrogen.nuvoxel.com">
                     <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
                       <div className="w-0 h-0 border-l-[6px] border-l-white border-y-[4px] border-y-transparent ml-0.5"></div>
                     </div>

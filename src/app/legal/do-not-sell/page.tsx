@@ -101,7 +101,7 @@ export default function DoNotSellPage() {
           <h2 className="text-2xl font-semibold mt-8 mb-4">More Information</h2>
           <p className="mb-4">
             For more information about our privacy practices, please review our{' '}
-            <Link href="/privacy" className="text-primary hover:underline">
+            <Link href="/legal/privacy" className="text-primary hover:underline">
               Privacy Policy
             </Link>.
           </p>

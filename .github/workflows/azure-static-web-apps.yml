@@ -70,6 +70,8 @@ jobs:
           # For production deployment
           production_branch: "main"
         env:
+          # Enable static export for Next.js
+          IS_STATIC_EXPORT: true
           # Runtime environment variables (passed to the deployed app)
           NEXT_PUBLIC_APPLICATIONINSIGHTS_CONNECTION_STRING: ${{ secrets.NEXT_PUBLIC_APPLICATIONINSIGHTS_CONNECTION_STRING }}
 

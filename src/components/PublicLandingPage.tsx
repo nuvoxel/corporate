@@ -148,7 +148,7 @@ export default function PublicLandingPage() {
               </div>
               
               {/* Floating Stats Card */}
-              <div className="absolute -top-6 -right-6 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl p-4 text-white shadow-xl transform -rotate-12 hover:rotate-0 transition-transform duration-300">
+              <div className="hidden md:block absolute -top-6 -right-6 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl p-4 text-white shadow-xl transform -rotate-12 hover:rotate-0 transition-transform duration-300">
                 <div className="text-center">
                   <div className="text-2xl font-bold">26%</div>
                   <div className="text-sm opacity-90">Cheaper on AWS</div>
@@ -156,7 +156,7 @@ export default function PublicLandingPage() {
               </div>
               
               {/* Bottom Right Card */}
-              <div className="absolute -bottom-6 right-0 bg-white dark:bg-slate-800 rounded-xl shadow-lg p-4 transform rotate-6 hover:rotate-0 transition-transform duration-300">
+              <div className="hidden md:block absolute -bottom-6 right-0 bg-white dark:bg-slate-800 rounded-xl shadow-lg p-4 transform rotate-6 hover:rotate-0 transition-transform duration-300">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center">
                     <TrendingUp className="w-4 h-4 text-green-600 dark:text-green-400" />

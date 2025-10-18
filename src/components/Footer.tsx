@@ -57,7 +57,7 @@ export function Footer() {
             {/* Legal Links */}
             <div>
               <h4 className="text-sm font-semibold mb-3">Legal</h4>
-              <div className="flex gap-3 min-w-0">
+              <div className="flex flex-col sm:flex-row gap-3 min-w-0">
                 {/* First column - 3 short entries */}
                 <ul className="space-y-2">
                   <li>
@@ -77,7 +77,7 @@ export function Footer() {
                   </li>
                 </ul>
                 {/* Second column - 2 long entries */}
-                <ul className="space-y-2 ml-8">
+                <ul className="space-y-2 sm:ml-8">
                   <li>
                     <Link href="/legal/dpa" className="text-sm text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap">
                       Data Processing Agreement

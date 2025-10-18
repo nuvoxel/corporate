@@ -1,0 +1,306 @@
+{
+  "version": "1.0.0",
+  "currency": "USD",
+  "billingCycles": [
+    {
+      "id": "monthly",
+      "label": "Monthly"
+    },
+    {
+      "id": "annual",
+      "label": "Annual",
+      "discountPercentage": 20
+    }
+  ],
+  "plans": [
+    {
+      "id": "free",
+      "name": "Free",
+      "description": "Essential cloud comparison tools",
+      "visible": true,
+      "order": 1,
+      "pricing": {
+        "monthly": 0,
+        "currency": "USD"
+      },
+      "limits": {
+        "users": 1,
+        "comparisons": 100
+      },
+      "features": [
+        "cloud_provider_comparisons",
+        "region_comparisons",
+        "sku_comparisons",
+        "cloud_leaderboards"
+      ],
+      "marketplaces": [],
+      "cta": {
+        "label": "Get Started Free",
+        "url": "https://hydrogen.nuvoxel.com/sign-up?plan=free",
+        "variant": "outline"
+      }
+    },
+    {
+      "id": "pro",
+      "name": "Pro",
+      "description": "Advanced comparisons & export",
+      "visible": true,
+      "order": 2,
+      "pricing": {
+        "monthly": 1000,
+        "annual": 9600,
+        "currency": "USD"
+      },
+      "limits": {
+        "users": 1,
+        "apiCalls": 1000,
+        "savedComparisons": 50
+      },
+      "features": [
+        "cloud_provider_comparisons",
+        "region_comparisons",
+        "sku_comparisons",
+        "cloud_leaderboards",
+        "workload_comparisons",
+        "benchmark_comparisons",
+        "saved_comparisons",
+        "excel_export",
+        "sku_equivalence"
+      ],
+      "marketplaces": [
+        {
+          "marketplaceId": "azure",
+          "listingUrl": "https://azuremarketplace.microsoft.com/marketplace/apps/nuvoxel.hydrogen"
+        }
+      ],
+      "cta": {
+        "label": "Subscribe to Pro",
+        "url": "https://hydrogen.nuvoxel.com/sign-up?plan=pro",
+        "variant": "outline"
+      }
+    },
+    {
+      "id": "max",
+      "name": "Max",
+      "badge": "MOST POPULAR",
+      "description": "Complete cloud intelligence suite",
+      "visible": true,
+      "order": 3,
+      "pricing": {
+        "monthly": 3000,
+        "annual": 28800,
+        "currency": "USD"
+      },
+      "limits": {
+        "users": 1,
+        "apiCalls": 10000,
+        "savedComparisons": -1
+      },
+      "features": [
+        "cloud_provider_comparisons",
+        "region_comparisons",
+        "sku_comparisons",
+        "cloud_leaderboards",
+        "workload_comparisons",
+        "benchmark_comparisons",
+        "saved_comparisons",
+        "excel_export",
+        "sku_equivalence",
+        "multi_currency",
+        "spot_analysis",
+        "api_access",
+        "arm_bicep_pricing",
+        "variable_cost",
+        "support_license_costs"
+      ],
+      "marketplaces": [
+        {
+          "marketplaceId": "azure",
+          "listingUrl": "https://azuremarketplace.microsoft.com/marketplace/apps/nuvoxel.hydrogen"
+        }
+      ],
+      "cta": {
+        "label": "Start Free Trial",
+        "url": "https://hydrogen.nuvoxel.com/sign-up?plan=max",
+        "variant": "default"
+      },
+      "trial": {
+        "days": 7,
+        "requiresCard": false
+      }
+    },
+    {
+      "id": "enterprise",
+      "name": "Enterprise",
+      "description": "Team collaboration & enterprise features",
+      "visible": true,
+      "order": 4,
+      "pricing": {
+        "monthly": 25000,
+        "annual": 240000,
+        "perUser": 3000,
+        "currency": "USD"
+      },
+      "limits": {
+        "users": 5,
+        "apiCalls": -1,
+        "savedComparisons": -1
+      },
+      "features": [
+        "cloud_provider_comparisons",
+        "region_comparisons",
+        "sku_comparisons",
+        "cloud_leaderboards",
+        "workload_comparisons",
+        "benchmark_comparisons",
+        "saved_comparisons",
+        "excel_export",
+        "sku_equivalence",
+        "multi_currency",
+        "spot_analysis",
+        "api_access",
+        "arm_bicep_pricing",
+        "variable_cost",
+        "support_license_costs",
+        "organization_management",
+        "role_based_access",
+        "audit_logs",
+        "flexible_storage",
+        "priority_support"
+      ],
+      "marketplaces": [
+        {
+          "marketplaceId": "azure",
+          "listingUrl": "https://azuremarketplace.microsoft.com/marketplace/apps/nuvoxel.hydrogen"
+        },
+        {
+          "marketplaceId": "aws",
+          "comingSoon": true
+        }
+      ],
+      "cta": {
+        "label": "Contact Sales",
+        "url": "https://nuvoxel.com/company/contact",
+        "variant": "primary"
+      }
+    }
+  ],
+  "marketplaces": [
+    {
+      "id": "azure",
+      "name": "Azure Marketplace",
+      "availablePlans": ["pro", "max", "enterprise"],
+      "listingUrl": "https://azuremarketplace.microsoft.com/marketplace/apps/nuvoxel.hydrogen",
+      "status": "available"
+    },
+    {
+      "id": "aws",
+      "name": "AWS Marketplace",
+      "availablePlans": ["enterprise"],
+      "status": "coming_soon"
+    }
+  ],
+  "features": [
+    {
+      "id": "cloud_provider_comparisons",
+      "name": "Cloud Provider Comparisons",
+      "category": "core"
+    },
+    {
+      "id": "region_comparisons",
+      "name": "Region Comparisons",
+      "category": "core"
+    },
+    {
+      "id": "sku_comparisons",
+      "name": "Specific SKU Comparisons",
+      "category": "core"
+    },
+    {
+      "id": "cloud_leaderboards",
+      "name": "Cloud Leaderboards",
+      "category": "core"
+    },
+    {
+      "id": "workload_comparisons",
+      "name": "Workload Based Comparisons",
+      "category": "advanced"
+    },
+    {
+      "id": "benchmark_comparisons",
+      "name": "Benchmark Informed Comparisons",
+      "category": "advanced"
+    },
+    {
+      "id": "saved_comparisons",
+      "name": "Saved Comparisons",
+      "category": "advanced"
+    },
+    {
+      "id": "excel_export",
+      "name": "Excel Export",
+      "category": "advanced"
+    },
+    {
+      "id": "sku_equivalence",
+      "name": "SKU Equivalence Calculation",
+      "category": "advanced"
+    },
+    {
+      "id": "multi_currency",
+      "name": "Multi-Currency Conversion",
+      "category": "advanced"
+    },
+    {
+      "id": "spot_analysis",
+      "name": "Spot Instance Analysis",
+      "category": "advanced"
+    },
+    {
+      "id": "api_access",
+      "name": "API Access",
+      "category": "advanced"
+    },
+    {
+      "id": "arm_bicep_pricing",
+      "name": "ARM/Bicep Template Pricing",
+      "category": "advanced"
+    },
+    {
+      "id": "variable_cost",
+      "name": "Variable Cost Comparison",
+      "category": "advanced"
+    },
+    {
+      "id": "support_license_costs",
+      "name": "Support & License Costs",
+      "category": "advanced"
+    },
+    {
+      "id": "organization_management",
+      "name": "Organization Management",
+      "category": "enterprise"
+    },
+    {
+      "id": "role_based_access",
+      "name": "Role-Based Access Control",
+      "category": "enterprise"
+    },
+    {
+      "id": "audit_logs",
+      "name": "Audit Logs & Compliance",
+      "category": "enterprise"
+    },
+    {
+      "id": "flexible_storage",
+      "name": "Flexible Storage Options",
+      "category": "enterprise"
+    },
+    {
+      "id": "priority_support",
+      "name": "Priority Support",
+      "category": "enterprise"
+    }
+  ]
+}
+

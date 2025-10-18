@@ -13,7 +13,7 @@ export function Footer() {
   const isHydrogenPage = pathname === '/hydrogen'
 
   return (
-    <footer className="mt-auto border-t bg-background/50 backdrop-blur-sm">
+    <footer className="mt-auto border-t bg-white/80 dark:bg-background/50 backdrop-blur-sm">
       <div className="w-full max-w-7xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
           {/* Left - Logo and company info */}

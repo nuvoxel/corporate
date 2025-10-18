@@ -18,7 +18,7 @@ export function LandingPageNavigation() {
   const isMainLandingPage = pathname === '/'
 
   return (
-    <nav className="flex items-center justify-between px-4 sm:px-6 py-3 border-b bg-background/95 backdrop-blur-sm">
+    <nav className="flex items-center justify-between px-4 sm:px-6 py-3 border-b bg-white/90 dark:bg-slate-900/95 backdrop-blur-sm">
       {/* Logo */}
       <Link href="/" className="cursor-pointer">
         <NuVoxelLogo className="h-7 sm:h-9 w-auto" variant="complete" />

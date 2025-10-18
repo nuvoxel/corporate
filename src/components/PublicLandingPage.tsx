@@ -27,7 +27,7 @@ export default function PublicLandingPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="px-6 lg:px-8 py-16 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 dark:from-slate-950 dark:via-blue-950 dark:to-slate-900 text-white relative">
+      <section className="px-6 lg:px-8 py-16 bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 dark:from-slate-950 dark:via-blue-950 dark:to-slate-900 text-slate-900 dark:text-white relative">
         <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
         <div className="relative z-10 max-w-7xl xl:max-w-[1320px] mx-auto">
           <div className="grid lg:grid-cols-2 gap-24 xl:gap-32 2xl:gap-40 items-center">
@@ -39,47 +39,16 @@ export default function PublicLandingPage() {
               
               <div className="mb-8">
                 <div className="relative block h-16">
-                  <div className="absolute left-[65%] lg:left-[22rem] text-red-500 text-4xl md:text-5xl font-bold whitespace-nowrap" style={{ fontFamily: 'Comic Sans MS, cursive', transform: 'rotate(-5deg)' }}>
-                    <span className="inline-block opacity-0 animate-write-char-1">E</span>
-                    <span className="inline-block opacity-0 animate-write-char-2">v</span>
-                    <span className="inline-block opacity-0 animate-write-char-3">e</span>
-                    <span className="inline-block opacity-0 animate-write-char-4">r</span>
-                    <span className="inline-block opacity-0 animate-write-char-5">y</span>
+                  <div className="absolute left-1/2 -translate-x-1/2 md:translate-x-0 md:left-[18rem] lg:left-[22rem] text-red-500 text-4xl md:text-5xl font-extrabold whitespace-nowrap font-sans" style={{ transform: 'rotate(-4deg)' }}>
+                    <span className="inline-block">Every</span>
                   </div>
                 </div>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-slate-900 dark:text-white">
                   Choose Right{' '}
                   <span className="relative inline-block">
                     <span>the First</span>
                     <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 40" preserveAspectRatio="none">
-                      <path 
-                        d="M 2,22 Q 20,20 40,19 T 60,17 Q 80,15 98,12" 
-                        stroke="none"
-                        fill="none"
-                        strokeLinecap="round"
-                      >
-                        <animate
-                          attributeName="stroke"
-                          values="none;rgb(239, 68, 68);rgb(239, 68, 68)"
-                          dur="0.8s"
-                          begin="0.5s"
-                          fill="freeze"
-                        />
-                        <animate
-                          attributeName="stroke-width"
-                          values="0;6;5"
-                          dur="0.8s"
-                          begin="0.5s"
-                          fill="freeze"
-                        />
-                        <animate
-                          attributeName="stroke-dasharray"
-                          values="0 100;100 0"
-                          dur="0.8s"
-                          begin="0.5s"
-                          fill="freeze"
-                        />
-                      </path>
+                      <path d="M 2,22 Q 20,20 40,19 T 60,17 Q 80,15 98,12" stroke="rgb(239,68,68)" strokeWidth="5" fill="none" strokeLinecap="round" shapeRendering="geometricPrecision" />
                     </svg>
                   </span>
                   {' '}Time
@@ -101,12 +70,12 @@ export default function PublicLandingPage() {
                 <Button 
                   size="lg" 
                   variant="ghost" 
-                  className="text-white hover:bg-white/10 gap-3 px-6 py-4 text-lg"
+                  className="text-slate-900 dark:text-white hover:bg-black/5 dark:hover:bg-white/10 gap-3 px-6 py-4 text-lg"
                   asChild
                 >
                   <Link href="https://hydrogen.nuvoxel.com">
-                    <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                      <div className="w-0 h-0 border-l-[6px] border-l-white border-y-[4px] border-y-transparent ml-0.5"></div>
+                    <div className="w-10 h-10 bg-black/10 dark:bg-white/20 rounded-full flex items-center justify-center">
+                      <div className="w-0 h-0 border-l-[6px] border-l-slate-900 dark:border-l-white border-y-[4px] border-y-transparent ml-0.5"></div>
                     </div>
                     How it works
                   </Link>

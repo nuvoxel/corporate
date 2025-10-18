@@ -14,11 +14,24 @@ const amiko = Amiko({
 
 export const metadata: Metadata = {
   title: 'Hydrogen by NuVoxel - Cloud Intelligence Platform',
-  description: 'Analyze costs, optimize resources, enhance security, and benchmark performance across all major cloud providers.',
+  description: 'Compare cloud providers, analyze workloads, predict costs, and find optimal configurations across AWS, Azure, and GCP with real pricing transparency.',
   icons: {
     icon: '/favicon.svg',
     shortcut: '/favicon.svg',
     apple: '/favicon.svg',
+  },
+  metadataBase: new URL('https://nuvoxel.com'),
+  openGraph: {
+    title: 'Hydrogen by NuVoxel',
+    description: 'Transparent cloud intelligence: compare providers, analyze workloads, predict costs.',
+    url: 'https://nuvoxel.com',
+    siteName: 'NuVoxel',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Hydrogen by NuVoxel',
+    description: 'Transparent cloud intelligence: compare providers, analyze workloads, predict costs.',
   },
 }
 

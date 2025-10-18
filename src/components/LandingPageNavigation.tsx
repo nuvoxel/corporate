@@ -43,14 +43,6 @@ export function LandingPageNavigation() {
                   </div>
                 </a>
               </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link href="/marketing/resale" className="cursor-pointer">
-                  <div>
-                    <div className="font-semibold">Resale</div>
-                    <div className="text-xs text-muted-foreground">Enterprise Reuse</div>
-                  </div>
-                </Link>
-              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
           

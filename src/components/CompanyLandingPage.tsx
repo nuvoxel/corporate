@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { NuVoxelLogo } from '@/components/NuVoxelLogo'
 import { HydrogenLogo } from '@/components/HydrogenLogo'
 import { YouTubeLatestVideo } from '@/components/YouTubeLatestVideo'
-import { Cloud, ArrowRight, BarChart3, ShoppingCart, Users, Shield, Sparkles, TrendingUp, AlertTriangle, Youtube } from 'lucide-react'
+import { Cloud, ArrowRight, BarChart3, Users, Shield, Sparkles, TrendingUp, AlertTriangle, Youtube } from 'lucide-react'
 
 export default function CompanyLandingPage() {
   return (
@@ -125,7 +125,7 @@ export default function CompanyLandingPage() {
                 </div>
               </div>
 
-              {/* Cloud providers and Resale distributed on the outer ring */}
+              {/* Cloud providers distributed on the outer ring */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[440px] h-[440px] z-20">
                 {/* AWS - Top (0 degrees) - on the ring */}
                 <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2" style={{ top: '0' }}>
@@ -145,13 +145,6 @@ export default function CompanyLandingPage() {
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
                   <div className="w-24 h-24 bg-white dark:bg-gray-800 rounded-lg shadow-lg flex items-center justify-center p-3 hover:scale-110 transition-transform">
                     <Image src="/gcp-color-24.svg" alt="Google Cloud" width={96} height={96} className="w-full h-full" />
-                  </div>
-                </div>
-                
-                {/* Resale - Left (270 degrees) - on the ring */}
-                <div className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2" style={{ left: '0' }}>
-                  <div className="w-24 h-24 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-lg shadow-lg flex items-center justify-center text-white hover:scale-110 transition-transform">
-                    <ShoppingCart className="w-10 h-10" />
                   </div>
                 </div>
               </div>
@@ -206,46 +199,6 @@ export default function CompanyLandingPage() {
                   <Button asChild className="w-full">
                     <Link href="https://hydrogen.nuvoxel.com">
                       Learn More About Hydrogen
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Resale - Secondary Product */}
-            <Card className="relative overflow-hidden hover:border-primary/50 transition-colors">
-              <CardHeader>
-                <div className="flex items-center gap-4">
-                  <div className="h-12 w-12 rounded-full bg-emerald-100 dark:bg-emerald-900/20 flex items-center justify-center">
-                    <ShoppingCart className="h-6 w-6 text-emerald-600 dark:text-emerald-400" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-2xl">Resale</CardTitle>
-                    <CardDescription className="text-base">
-                      Cloud Migration Lifecycle Partner
-                    </CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <p className="text-muted-foreground">
-                    Complete your cloud transformation with end-to-end equipment lifecycle management. We sell new parts and upgrades to extend equipment life, help identify assets for hybrid deployments, and turn surplus infrastructure into cloud funding.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                      <Shield className="h-4 w-4" />
-                      <span>CA Permitted</span>
-                    </div>
-                    <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                      <Users className="h-4 w-4" />
-                      <span>End-to-End Support</span>
-                    </div>
-                  </div>
-                  <Button asChild variant="outline" className="w-full">
-                    <Link href="/resale">
-                      Explore Resale
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>

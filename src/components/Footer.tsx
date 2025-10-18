@@ -42,11 +42,6 @@ export function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/marketing/resale" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                    Cloud Resale
-                  </Link>
-                </li>
-                <li>
                   <a href="https://shop.nuvoxel.com" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                     Shop
                   </a>

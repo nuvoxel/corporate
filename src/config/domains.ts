@@ -157,9 +157,9 @@ export const domainConfigs: DomainConfig[] = [
   
   // ===== MARKETING PAGES =====
   {
-    // Marketing pages (poc, resale, ripoff, tags, shop)
+    // Marketing pages (ripoff, tags, shop)
     pattern: /^(www\.)?nuvoxel\.com$/,
-    pathPattern: /^\/marketing\/(poc|resale|ripoff|tags|shop)(\/.*)?$/,
+    pathPattern: /^\/marketing\/(ripoff|tags|shop)(\/.*)?$/,
     behavior: {
       type: 'public-landing',
       showNavigation: true,
@@ -275,7 +275,7 @@ export const domainConfigs: DomainConfig[] = [
   {
     // Development - Marketing pages
     pattern: /^localhost(:\d+)?$/,
-    pathPattern: /^\/marketing\/(poc|resale|ripoff|tags|shop)(\/.*)?$/,
+    pathPattern: /^\/marketing\/(ripoff|tags|shop)(\/.*)?$/,
     behavior: {
       type: 'public-landing',
       showNavigation: true,

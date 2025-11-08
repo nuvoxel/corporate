@@ -74,6 +74,8 @@ jobs:
           IS_STATIC_EXPORT: true
           # Runtime environment variables (passed to the deployed app)
           NEXT_PUBLIC_APPLICATIONINSIGHTS_CONNECTION_STRING: ${{ secrets.NEXT_PUBLIC_APPLICATIONINSIGHTS_CONNECTION_STRING }}
+          # Hydrogen API URL for dynamic pricing data
+          NEXT_PUBLIC_HYDROGEN_API_URL: https://hydrogen.nuvoxel.com
 
       - name: Post-deployment validation
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'

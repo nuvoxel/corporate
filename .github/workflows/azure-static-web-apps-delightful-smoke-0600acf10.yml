@@ -32,6 +32,9 @@ jobs:
           api_location: "" # Api source code path - optional
           output_location: "out" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
+        env:
+          # Hydrogen API URL for dynamic pricing data
+          NEXT_PUBLIC_HYDROGEN_API_URL: https://hydrogen.nuvoxel.com
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'

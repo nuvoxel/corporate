@@ -118,13 +118,30 @@ export function usePricing(options: UsePricingOptions = {}): UsePricingResult {
       setLoading(true)
       setError(null)
 
-      // Load from JSON file directly
-      setData(getStaticPricingData())
-      
+      // Fetch from Hydrogen API
+      const apiUrl = process.env.NEXT_PUBLIC_HYDROGEN_API_URL || 'https://hydrogen.nuvoxel.com'
+      const queryString = buildQueryString()
+
+      const response = await fetch(`${apiUrl}/api/public/pricing${queryString}`, {
+        headers: {
+          'Accept': 'application/json',
+        },
+        // Cache for 5 minutes on the client
+        next: { revalidate: 300 }
+      })
+
+      if (!response.ok) {
+        throw new Error(`Failed to fetch pricing: ${response.statusText}`)
+      }
+
+      const data = await response.json()
+      setData(data)
+
     } catch (err) {
       console.error('Failed to load pricing data:', err)
       setError(err instanceof Error ? err : new Error('Failed to load pricing'))
-      setData(null)
+      // Fallback to static data if API fails
+      setData(getStaticPricingData())
     } finally {
       setLoading(false)
     }

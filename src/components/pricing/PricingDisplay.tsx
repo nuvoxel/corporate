@@ -71,11 +71,11 @@ export function PricingDisplay({
     <div className={className}>
       {/* Pricing Cards */}
       <div className={cn(
-        "grid gap-6",
-        plans.length === 1 && "md:grid-cols-1 max-w-md mx-auto",
-        plans.length === 2 && "md:grid-cols-2 max-w-3xl mx-auto",
-        plans.length === 3 && "md:grid-cols-3 max-w-5xl mx-auto",
-        plans.length >= 4 && "md:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto"
+        "grid gap-8 w-full mx-auto",
+        plans.length === 1 && "md:grid-cols-1 max-w-md",
+        plans.length === 2 && "md:grid-cols-2 max-w-3xl",
+        plans.length === 3 && "md:grid-cols-3 max-w-5xl",
+        plans.length >= 4 && "md:grid-cols-2 lg:grid-cols-4 max-w-7xl"
       )}>
         {plans.map((plan) => {
           const price = getMonthlyPrice(plan)
@@ -86,22 +86,22 @@ export function PricingDisplay({
             <Card
               key={plan.id}
               className={cn(
-                "relative border-2 h-full flex flex-col",
-                isPopular && "border-primary shadow-lg",
-                !isPopular && "border-border"
+                "relative border-2 h-full flex flex-col overflow-visible",
+                isPopular && "border-primary shadow-xl ring-1 ring-primary/10",
+                !isPopular && "border-border hover:border-primary/50 transition-colors"
               )}
             >
               {isPopular && !isCurrentPlan && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <Badge className="bg-gradient-to-r from-blue-500 to-purple-500 text-white border-0">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
+                  <Badge className="bg-gradient-to-r from-blue-500 to-purple-500 text-white border-0 shadow-md px-3 py-1">
                     MOST POPULAR
                   </Badge>
                 </div>
               )}
 
               {isCurrentPlan && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <Badge variant="default" className="bg-green-600">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
+                  <Badge variant="default" className="bg-green-600 shadow-md px-3 py-1">
                     CURRENT PLAN
                   </Badge>
                 </div>
@@ -184,19 +184,19 @@ export function PricingDisplay({
 
       {/* Add-ons Section */}
       {addons && addons.length > 0 && (
-        <div className="mt-16">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold mb-2">Add-ons</h2>
-            <p className="text-lg text-muted-foreground">
+        <div className="mt-20">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold mb-3">Add-ons</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Enhance your subscription with additional features
             </p>
           </div>
 
           <div className={cn(
-            "grid gap-6",
-            addons.length === 1 && "md:grid-cols-1 max-w-md mx-auto",
-            addons.length === 2 && "md:grid-cols-2 max-w-3xl mx-auto",
-            addons.length >= 3 && "md:grid-cols-3 max-w-6xl mx-auto"
+            "grid gap-8 w-full mx-auto",
+            addons.length === 1 && "md:grid-cols-1 max-w-md",
+            addons.length === 2 && "md:grid-cols-2 max-w-3xl",
+            addons.length >= 3 && "md:grid-cols-3 max-w-6xl"
           )}>
             {addons.map((addon) => {
               const addonPrice = addon.monthlyPrice ? Number(addon.monthlyPrice) : 0;
@@ -204,7 +204,7 @@ export function PricingDisplay({
               return (
                 <Card
                   key={addon.id}
-                  className="relative border-2 h-full flex flex-col border-border"
+                  className="relative border-2 h-full flex flex-col border-border hover:border-primary/50 transition-colors"
                 >
                   <CardHeader>
                     <CardTitle className="text-xl">{addon.name}</CardTitle>

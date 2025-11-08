@@ -73,8 +73,8 @@ export function PricingDisplay({
       <div className={cn(
         "grid gap-8 w-full mx-auto",
         plans.length === 1 && "md:grid-cols-1 max-w-md",
-        plans.length === 2 && "md:grid-cols-2 max-w-3xl",
-        plans.length === 3 && "md:grid-cols-3 max-w-5xl",
+        plans.length === 2 && "md:grid-cols-2 max-w-4xl",
+        plans.length === 3 && "md:grid-cols-3 max-w-6xl",
         plans.length >= 4 && "md:grid-cols-2 lg:grid-cols-4 max-w-7xl"
       )}>
         {plans.map((plan) => {
@@ -108,8 +108,11 @@ export function PricingDisplay({
               )}
 
               <CardHeader className={isPopular || isCurrentPlan ? "pt-8" : ""}>
-                <CardTitle className="text-xl">{plan.name}</CardTitle>
-                <div className="mt-4">
+                {/* Plan Name */}
+                <CardTitle className="text-xl h-7">{plan.name}</CardTitle>
+
+                {/* Price Section - fixed height for alignment */}
+                <div className="mt-4 min-h-[120px] flex flex-col justify-start">
                   {plan.id === 'free' ? (
                     <div className="text-3xl font-bold">Free</div>
                   ) : !plan.monthlyPrice || plan.monthlyPrice === 0 || plan.monthlyPrice === '0' ? (
@@ -122,18 +125,20 @@ export function PricingDisplay({
                       <div className="text-3xl font-bold">
                         ${Number(plan.overagePricePerResource).toFixed(2)}
                       </div>
-                      <div className="text-sm text-muted-foreground">
+                      <div className="text-sm text-muted-foreground mt-1">
                         per resource/month after {plan.freeResourceQuota}
                       </div>
                     </>
                   ) : (
                     <>
-                      <span className="text-3xl font-bold">{formatPrice(price)}</span>
-                      <span className="text-muted-foreground">/month</span>
+                      <div className="text-3xl font-bold">{formatPrice(price)}</div>
+                      <div className="text-sm text-muted-foreground mt-1">/month</div>
                     </>
                   )}
                 </div>
-                <CardDescription className="mt-2">{plan.description}</CardDescription>
+
+                {/* Description */}
+                <CardDescription className="mt-4">{plan.description}</CardDescription>
               </CardHeader>
 
               <CardContent className="flex flex-col flex-grow p-6">
@@ -202,7 +207,7 @@ export function PricingDisplay({
           <div className={cn(
             "grid gap-8 w-full mx-auto",
             addons.length === 1 && "md:grid-cols-1 max-w-md",
-            addons.length === 2 && "md:grid-cols-2 max-w-3xl",
+            addons.length === 2 && "md:grid-cols-2 max-w-4xl",
             addons.length >= 3 && "md:grid-cols-3 max-w-6xl"
           )}>
             {addons.map((addon) => {
@@ -214,8 +219,11 @@ export function PricingDisplay({
                   className="relative border-2 h-full flex flex-col border-border hover:border-primary/50 transition-colors"
                 >
                   <CardHeader>
-                    <CardTitle className="text-xl">{addon.name}</CardTitle>
-                    <div className="mt-4">
+                    {/* Addon Name */}
+                    <CardTitle className="text-xl h-7">{addon.name}</CardTitle>
+
+                    {/* Price Section - fixed height for alignment */}
+                    <div className="mt-4 min-h-[120px] flex flex-col justify-start">
                       {addonPrice === 0 || !addon.monthlyPrice ? (
                         <div className="text-3xl font-bold">Contact Us</div>
                       ) : addon.id === 'extended_data_retention' ? (
@@ -232,14 +240,16 @@ export function PricingDisplay({
                         </>
                       ) : (
                         <>
-                          <span className="text-3xl font-bold">
+                          <div className="text-3xl font-bold">
                             {formatPrice(addonPrice)}
-                          </span>
-                          <span className="text-muted-foreground">/month</span>
+                          </div>
+                          <div className="text-sm text-muted-foreground mt-1">/month</div>
                         </>
                       )}
                     </div>
-                    <CardDescription className="mt-2">
+
+                    {/* Description */}
+                    <CardDescription className="mt-4">
                       {addon.description}
                     </CardDescription>
                   </CardHeader>

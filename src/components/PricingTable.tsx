@@ -163,30 +163,51 @@ export function PricingTable({
         {visiblePlans.map(plan => {
           const price = getMonthlyPrice(plan)
           const displayFeatures = getPlanFeatures(plan)
+          const isPopular = plan.id === 'pro' || plan.id === 'metered'
 
           return (
-            <Card 
+            <Card
               key={plan.id}
               className={cn(
                 "relative border-2 hover:border-primary/50 transition-colors h-full flex flex-col",
-                plan.badge?.includes('POPULAR') && "border-primary"
+                (plan.badge?.includes('POPULAR') || isPopular) && "border-primary shadow-lg"
               )}
             >
-              {plan.badge && (
+              {(plan.badge || isPopular) && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                   <Badge className="bg-gradient-to-r from-blue-500 to-purple-500 text-white border-0">
-                    {plan.badge}
+                    {plan.badge || 'MOST POPULAR'}
                   </Badge>
                 </div>
               )}
               
-              <CardHeader className={plan.badge ? "pt-8" : ""}>
+              <CardHeader className={(plan.badge || isPopular) ? "pt-8" : ""}>
                 <CardTitle className="text-xl">{plan.name}</CardTitle>
                 <div className="mt-4">
-                  <span className="text-3xl font-bold">
-                    {formatPrice(price, plan.pricing.currency)}
-                  </span>
-                  <span className="text-muted-foreground">/month</span>
+                  {plan.id === 'free' ? (
+                    <div className="text-3xl font-bold">Free</div>
+                  ) : price === 0 ? (
+                    <div className="text-3xl font-bold">Contact Us</div>
+                  ) : plan.limits?.resources && plan.pricing?.perResource ? (
+                    <>
+                      <div className="text-2xl font-semibold text-primary mb-1">
+                        {plan.limits.resources} resources free
+                      </div>
+                      <div className="text-3xl font-bold">
+                        {formatPrice(plan.pricing.perResource, plan.pricing.currency)}
+                      </div>
+                      <div className="text-sm text-muted-foreground">
+                        per resource/month after {plan.limits.resources}
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <span className="text-3xl font-bold">
+                        {formatPrice(price, plan.pricing.currency)}
+                      </span>
+                      <span className="text-muted-foreground">/month</span>
+                    </>
+                  )}
                 </div>
                 <CardDescription className="mt-2">
                   {plan.description}
@@ -252,6 +273,79 @@ export function PricingTable({
           )
         })}
       </div>
+
+      {/* Add-ons Section */}
+      {data.addons && data.addons.length > 0 && (
+        <div className="mt-16">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold mb-2">Add-ons</h2>
+            <p className="text-lg text-muted-foreground">
+              Enhance your subscription with additional features
+            </p>
+          </div>
+
+          <div className={cn(
+            "grid gap-6",
+            data.addons.length === 1 && "md:grid-cols-1 max-w-md mx-auto",
+            data.addons.length === 2 && "md:grid-cols-2 max-w-3xl mx-auto",
+            data.addons.length >= 3 && "md:grid-cols-3 max-w-6xl mx-auto"
+          )}>
+            {data.addons.map((addon: any) => {
+              const addonPrice = addon.pricing?.monthly || 0;
+
+              return (
+                <Card
+                  key={addon.id}
+                  className="relative border-2 h-full flex flex-col transition-all border-border hover:border-primary/50"
+                >
+                  <CardHeader>
+                    <CardTitle className="text-xl">{addon.name}</CardTitle>
+                    <div className="mt-4">
+                      {addonPrice === 0 ? (
+                        <div className="text-3xl font-bold">Contact Us</div>
+                      ) : (
+                        <>
+                          <span className="text-3xl font-bold">
+                            {formatPrice(addonPrice, addon.pricing.currency || 'USD')}
+                          </span>
+                          <span className="text-muted-foreground">/month</span>
+                        </>
+                      )}
+                    </div>
+                    <CardDescription className="mt-2">
+                      {addon.description}
+                    </CardDescription>
+                  </CardHeader>
+
+                  <CardContent className="flex flex-col flex-grow">
+                    {addon.features && addon.features.length > 0 && (
+                      <ul className="space-y-2 mb-6 flex-grow text-sm">
+                        {addon.features.map((featureId: string) => (
+                          <li key={featureId} className="flex items-start gap-2">
+                            <Check className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
+                            <span className="capitalize">{featureId.replace(/_/g, ' ')}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    <Button
+                      asChild
+                      className="w-full mt-auto"
+                      variant={getButtonVariant(addon.cta?.variant || 'default')}
+                    >
+                      <Link href={addon.cta?.url || 'https://hydrogen.nuvoxel.com/pricing'}>
+                        {addon.cta?.label || 'Learn More'}
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {/* Feature Comparison Table */}
       {showFeatureComparison && visiblePlans.length > 1 && data.features && (

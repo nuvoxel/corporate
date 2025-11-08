@@ -136,46 +136,53 @@ export function PricingDisplay({
                 <CardDescription className="mt-2">{plan.description}</CardDescription>
               </CardHeader>
 
-              <CardContent className="flex flex-col flex-grow">
-                <ul className="space-y-2 mb-6 flex-grow text-sm">
+              <CardContent className="flex flex-col flex-grow p-6">
+                {/* Features List - grows to fill space */}
+                <ul className="space-y-2.5 mb-6 flex-grow text-sm">
                   {(plan.features || []).slice(0, 8).map((featureKey: string) => (
                     <li key={featureKey} className="flex items-start gap-2">
                       <Check className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
-                      <span>{getFeatureDisplay(featureKey)}</span>
+                      <span className="text-sm">{getFeatureDisplay(featureKey)}</span>
                     </li>
                   ))}
                   {(plan.features || []).length > 8 && (
-                    <li className="text-xs text-muted-foreground italic">
+                    <li className="text-xs text-muted-foreground italic pt-1">
                       + {(plan.features || []).length - 8} more features
                     </li>
                   )}
                 </ul>
 
-                {plan.trialDays && plan.trialDays > 0 && !isCurrentPlan && (
-                  <div className="border-t pt-3 mb-3">
-                    <div className="text-xs text-center text-muted-foreground">
-                      {plan.trialDays}-day free trial
+                {/* Bottom section - always at bottom */}
+                <div className="mt-auto space-y-4">
+                  {plan.trialDays && plan.trialDays > 0 && !isCurrentPlan && (
+                    <div className="border-t pt-4">
+                      <div className="text-xs text-center text-muted-foreground">
+                        {plan.trialDays}-day free trial
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
 
-                {plan.id === 'free' && (
-                  <div className="border-t pt-3 mb-3">
-                    <div className="flex items-center justify-center gap-1 text-xs text-green-600 font-medium">
-                      <Check className="h-3 w-3" />
-                      No credit card required
+                  {plan.id === 'free' && (
+                    <div className="border-t pt-4">
+                      <div className="flex items-center justify-center gap-1 text-xs text-green-600 font-medium">
+                        <Check className="h-3 w-3" />
+                        No credit card required
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
 
-                {renderButton ? (
-                  renderButton(plan)
-                ) : (
-                  <Button className="w-full mt-auto" variant={isPopular ? 'default' : 'outline'}>
-                    {plan.id === 'free' ? 'Get Started Free' :
-                     !plan.monthlyPrice || plan.monthlyPrice === 0 || plan.monthlyPrice === '0' ? 'Contact Sales' : 'Start Free Trial'}
-                  </Button>
-                )}
+                  {/* CTA Button */}
+                  <div className={plan.trialDays || plan.id === 'free' ? '' : 'pt-4 border-t'}>
+                    {renderButton ? (
+                      renderButton(plan)
+                    ) : (
+                      <Button className="w-full" size="lg" variant={isPopular ? 'default' : 'outline'}>
+                        {plan.id === 'free' ? 'Get Started Free' :
+                         !plan.monthlyPrice || plan.monthlyPrice === 0 || plan.monthlyPrice === '0' ? 'Contact Sales' : 'Start Free Trial'}
+                      </Button>
+                    )}
+                  </div>
+                </div>
               </CardContent>
             </Card>
           )
@@ -237,28 +244,33 @@ export function PricingDisplay({
                     </CardDescription>
                   </CardHeader>
 
-                  <CardContent className="flex flex-col flex-grow">
+                  <CardContent className="flex flex-col flex-grow p-6">
+                    {/* Features List */}
                     {addon.features && addon.features.length > 0 && (
-                      <ul className="space-y-2 mb-6 flex-grow text-sm">
+                      <ul className="space-y-2.5 mb-6 flex-grow text-sm">
                         {addon.features.map((featureKey: string) => (
                           <li key={featureKey} className="flex items-start gap-2">
                             <Check className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
-                            <span>{getFeatureDisplay(featureKey)}</span>
+                            <span className="text-sm">{getFeatureDisplay(featureKey)}</span>
                           </li>
                         ))}
                       </ul>
                     )}
 
-                    {renderAddonButton ? (
-                      renderAddonButton(addon)
-                    ) : (
-                      <Button
-                        className="w-full mt-auto"
-                        variant={addon.monthlyPrice ? 'default' : 'outline'}
-                      >
-                        {addon.monthlyPrice ? 'Add to Plan' : 'Contact Sales'}
-                      </Button>
-                    )}
+                    {/* CTA Button - always at bottom */}
+                    <div className="mt-auto pt-4 border-t">
+                      {renderAddonButton ? (
+                        renderAddonButton(addon)
+                      ) : (
+                        <Button
+                          className="w-full"
+                          size="lg"
+                          variant={addon.monthlyPrice ? 'default' : 'outline'}
+                        >
+                          {addon.monthlyPrice ? 'Add to Plan' : 'Contact Sales'}
+                        </Button>
+                      )}
+                    </div>
                   </CardContent>
                 </Card>
               );

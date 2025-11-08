@@ -3,11 +3,10 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Check, ArrowRight, Loader2 } from 'lucide-react'
-import { usePricing, formatPrice, type Plan, type Feature } from '@/hooks/usePricing'
-import { cn } from '@/lib/utils'
+import { Card, CardContent } from '@/components/ui/card'
+import { Loader2, ArrowRight } from 'lucide-react'
+import { usePricing } from '@/hooks/usePricing'
+import { PricingDisplay } from '@/components/pricing/PricingDisplay'
 
 interface PricingTableProps {
   showFeatureComparison?: boolean
@@ -24,7 +23,7 @@ export function PricingTable({
 
   if (loading) {
     return (
-      <div className={cn("flex items-center justify-center py-12", className)}>
+      <div className={`flex items-center justify-center py-12 ${className}`}>
         <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
       </div>
     )
@@ -33,7 +32,7 @@ export function PricingTable({
   // More graceful fallback when pricing is unavailable
   if (!data || !data.plans || data.plans.length === 0) {
     return (
-      <div className={cn("text-center py-16", className)}>
+      <div className={`text-center py-16 ${className}`}>
         <Card className="max-w-md mx-auto p-8 border-2">
           <CardContent className="space-y-4 p-0">
             <div className="text-2xl font-bold">
@@ -57,12 +56,22 @@ export function PricingTable({
   }
 
   // Safely filter and sort plans
-  let visiblePlans: Plan[] = []
+  let visiblePlans = []
   try {
     visiblePlans = data.plans
       .filter(plan => plan && plan.visible !== false)
       .sort((a, b) => (a.order || 999) - (b.order || 999))
       .slice(0, maxColumns)
+      .map(plan => ({
+        id: plan.id,
+        name: plan.name,
+        description: plan.description,
+        monthlyPrice: plan.pricing?.monthly ? (plan.pricing.monthly / 100).toString() : undefined,
+        overagePricePerResource: plan.pricing?.perResource ? (plan.pricing.perResource / 100).toString() : undefined,
+        freeResourceQuota: plan.limits?.resources,
+        trialDays: plan.trial?.days,
+        features: plan.features || []
+      }))
   } catch (err) {
     console.warn('Error processing plans:', err)
     visiblePlans = []
@@ -71,7 +80,7 @@ export function PricingTable({
   // If no visible plans after processing, show fallback
   if (visiblePlans.length === 0) {
     return (
-      <div className={cn("text-center py-16", className)}>
+      <div className={`text-center py-16 ${className}`}>
         <Card className="max-w-md mx-auto p-8 border-2">
           <CardContent className="space-y-4 p-0">
             <div className="text-2xl font-bold">
@@ -94,321 +103,52 @@ export function PricingTable({
     )
   }
 
-  const getMonthlyPrice = (plan: Plan) => {
-    try {
-      return plan.pricing?.monthly || 0
-    } catch {
-      return 0
-    }
-  }
+  // Transform add-ons
+  const transformedAddons = (data.addons || []).map(addon => ({
+    id: addon.id,
+    name: addon.name,
+    description: addon.description,
+    monthlyPrice: addon.pricing?.monthly ? (addon.pricing.monthly / 100).toString() : undefined,
+    features: addon.features || []
+  }))
 
-  const getFeatureDisplay = (featureId: string) => {
-    try {
-      const feature = data.features?.find(f => f.id === featureId)
-      return feature?.name || featureId
-    } catch {
-      return featureId
-    }
-  }
-
-  const getPlanFeatures = (plan: Plan) => {
-    try {
-      if (!plan.features || !Array.isArray(plan.features)) {
-        return []
-      }
-      
-      // Group features by category for better display
-      const coreFeatures = plan.features
-        .filter(fId => {
-          const feature = data.features?.find(f => f.id === fId)
-          return feature?.category === 'core'
-        })
-        .slice(0, 4) // Show max 4 core features
-
-      const advancedFeatures = plan.features
-        .filter(fId => {
-          const feature = data.features?.find(f => f.id === fId)
-          return feature?.category === 'advanced'
-        })
-        .slice(0, 5) // Show max 5 advanced features
-
-      const enterpriseFeatures = plan.features
-        .filter(fId => {
-          const feature = data.features?.find(f => f.id === fId)
-          return feature?.category === 'enterprise'
-        })
-
-      return [...coreFeatures, ...advancedFeatures, ...enterpriseFeatures]
-    } catch (err) {
-      console.warn('Error processing plan features:', err)
-      return []
-    }
-  }
-
-  const getButtonVariant = (variant: string): "default" | "outline" | "secondary" | "ghost" | "link" | "destructive" => {
-    const validVariants = ["default", "outline", "secondary", "ghost", "link", "destructive"]
-    return validVariants.includes(variant) ? variant as any : "outline"
-  }
+  // Transform features
+  const transformedFeatures = (data.features || []).map(feature => ({
+    id: feature.id,
+    name: feature.name
+  }))
 
   return (
-    <div className={className}>
-      {/* Pricing Cards */}
-      <div className={cn(
-        "grid gap-6",
-        visiblePlans.length === 1 && "md:grid-cols-1 max-w-md mx-auto",
-        visiblePlans.length === 2 && "md:grid-cols-2 max-w-3xl mx-auto",
-        visiblePlans.length === 3 && "md:grid-cols-3 max-w-5xl mx-auto",
-        visiblePlans.length >= 4 && "md:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto"
-      )}>
-        {visiblePlans.map(plan => {
-          const price = getMonthlyPrice(plan)
-          const displayFeatures = getPlanFeatures(plan)
-          const isPopular = plan.id === 'pro' || plan.id === 'metered'
-
-          return (
-            <Card
-              key={plan.id}
-              className={cn(
-                "relative border-2 hover:border-primary/50 transition-colors h-full flex flex-col",
-                (plan.badge?.includes('POPULAR') || isPopular) && "border-primary shadow-lg"
-              )}
-            >
-              {(plan.badge || isPopular) && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <Badge className="bg-gradient-to-r from-blue-500 to-purple-500 text-white border-0">
-                    {plan.badge || 'MOST POPULAR'}
-                  </Badge>
-                </div>
-              )}
-              
-              <CardHeader className={(plan.badge || isPopular) ? "pt-8" : ""}>
-                <CardTitle className="text-xl">{plan.name}</CardTitle>
-                <div className="mt-4">
-                  {plan.id === 'free' ? (
-                    <div className="text-3xl font-bold">Free</div>
-                  ) : price === 0 ? (
-                    <div className="text-3xl font-bold">Contact Us</div>
-                  ) : plan.limits?.resources && plan.pricing?.perResource ? (
-                    <>
-                      <div className="text-2xl font-semibold text-primary mb-1">
-                        {plan.limits.resources} resources free
-                      </div>
-                      <div className="text-3xl font-bold">
-                        {formatPrice(plan.pricing.perResource, plan.pricing.currency)}
-                      </div>
-                      <div className="text-sm text-muted-foreground">
-                        per resource/month after {plan.limits.resources}
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <span className="text-3xl font-bold">
-                        {formatPrice(price, plan.pricing.currency)}
-                      </span>
-                      <span className="text-muted-foreground">/month</span>
-                    </>
-                  )}
-                </div>
-                <CardDescription className="mt-2">
-                  {plan.description}
-                </CardDescription>
-              </CardHeader>
-
-              <CardContent className="flex flex-col flex-grow">
-                <ul className="space-y-2 mb-6 flex-grow text-sm">
-                  {displayFeatures.map((featureId, idx) => (
-                    <li key={featureId} className="flex items-start gap-2">
-                      <Check className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
-                      <span className={idx === 0 && plan.id !== 'free' ? "font-medium" : ""}>
-                        {idx === 0 && plan.id !== 'free' 
-                          ? "Everything in " + (visiblePlans[visiblePlans.findIndex(p => p.id === plan.id) - 1]?.name || "previous") + ", plus:"
-                          : getFeatureDisplay(featureId)}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Limits & Additional Info */}
-                {(plan.limits?.users || plan.pricing?.perUser || plan.trial) && (
-                  <div className="border-t pt-3 mb-3 space-y-1">
-                    {plan.trial && (
-                      <div className="text-xs text-center text-muted-foreground">
-                        {plan.trial.days}-day free trial
-                      </div>
-                    )}
-                    {plan.limits.users && plan.id === 'enterprise' && (
-                      <div className="text-xs text-muted-foreground">
-                        <p>• {plan.limits.users} users included</p>
-                        {plan.pricing.perUser && (
-                          <p>• {formatPrice(plan.pricing.perUser, plan.pricing.currency)}/mo per additional user</p>
-                        )}
-                      </div>
-                    )}
-                  </div>
-                )}
-
-                {/* Free Plan Badge */}
-                {plan.id === 'free' && (
-                  <div className="border-t pt-3 mb-3">
-                    <div className="flex items-center justify-center gap-1 text-xs text-green-600 font-medium">
-                      <Check className="h-3 w-3" />
-                      No credit card required
-                    </div>
-                  </div>
-                )}
-
-                {/* CTA Button */}
-                <Button 
-                  asChild 
-                  className="w-full mt-auto" 
-                  variant={getButtonVariant(plan.cta?.variant || 'outline')}
-                >
-                  <Link href={plan.cta?.url || 'https://hydrogen.nuvoxel.com'}>
-                    {plan.cta?.label || 'Learn More'}
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-          )
-        })}
-      </div>
-
-      {/* Add-ons Section */}
-      {data.addons && data.addons.length > 0 && (
-        <div className="mt-16">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold mb-2">Add-ons</h2>
-            <p className="text-lg text-muted-foreground">
-              Enhance your subscription with additional features
-            </p>
-          </div>
-
-          <div className={cn(
-            "grid gap-6",
-            data.addons.length === 1 && "md:grid-cols-1 max-w-md mx-auto",
-            data.addons.length === 2 && "md:grid-cols-2 max-w-3xl mx-auto",
-            data.addons.length >= 3 && "md:grid-cols-3 max-w-6xl mx-auto"
-          )}>
-            {data.addons.map((addon: any) => {
-              const addonPrice = addon.pricing?.monthly || 0;
-
-              return (
-                <Card
-                  key={addon.id}
-                  className="relative border-2 h-full flex flex-col transition-all border-border hover:border-primary/50"
-                >
-                  <CardHeader>
-                    <CardTitle className="text-xl">{addon.name}</CardTitle>
-                    <div className="mt-4">
-                      {addonPrice === 0 ? (
-                        <div className="text-3xl font-bold">Contact Us</div>
-                      ) : (
-                        <>
-                          <span className="text-3xl font-bold">
-                            {formatPrice(addonPrice, addon.pricing.currency || 'USD')}
-                          </span>
-                          <span className="text-muted-foreground">/month</span>
-                        </>
-                      )}
-                    </div>
-                    <CardDescription className="mt-2">
-                      {addon.description}
-                    </CardDescription>
-                  </CardHeader>
-
-                  <CardContent className="flex flex-col flex-grow">
-                    {addon.features && addon.features.length > 0 && (
-                      <ul className="space-y-2 mb-6 flex-grow text-sm">
-                        {addon.features.map((featureId: string) => (
-                          <li key={featureId} className="flex items-start gap-2">
-                            <Check className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
-                            <span className="capitalize">{featureId.replace(/_/g, ' ')}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-
-                    <Button
-                      asChild
-                      className="w-full mt-auto"
-                      variant={getButtonVariant(addon.cta?.variant || 'default')}
-                    >
-                      <Link href={addon.cta?.url || 'https://hydrogen.nuvoxel.com/pricing'}>
-                        {addon.cta?.label || 'Learn More'}
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
+    <PricingDisplay
+      plans={visiblePlans}
+      addons={transformedAddons}
+      features={transformedFeatures}
+      className={className}
+      renderButton={(plan) => (
+        <Button
+          asChild
+          className="w-full mt-auto"
+          variant={plan.id === 'pro' || plan.id === 'metered' ? 'default' : 'outline'}
+        >
+          <Link href={!plan.monthlyPrice || plan.monthlyPrice === '0' ? 'https://nuvoxel.com/company/contact' : `https://hydrogen.nuvoxel.com/sign-up?plan=${plan.id}`}>
+            {plan.id === 'free' ? 'Get Started Free' :
+             !plan.monthlyPrice || plan.monthlyPrice === '0' ? 'Contact Sales' : 'Start Free Trial'}
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Link>
+        </Button>
       )}
-
-      {/* Feature Comparison Table */}
-      {showFeatureComparison && visiblePlans.length > 1 && data.features && (
-        <div className="mt-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Detailed Feature Comparison</h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              All plans include our core comparison engine. Higher tiers unlock advanced analytics and team features.
-            </p>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full max-w-6xl mx-auto">
-              <thead>
-                <tr className="border-b">
-                  <th className="text-left py-4 px-4">Feature</th>
-                  {visiblePlans.map(plan => (
-                    <th key={plan.id} className="text-center py-4 px-4">
-                      {plan.name}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {data.features.map(feature => (
-                  <tr key={feature.id} className="border-b">
-                    <td className="py-4 px-4 font-medium">{feature.name}</td>
-                    {visiblePlans.map(plan => (
-                      <td key={plan.id} className="text-center py-4 px-4">
-                        {plan.features?.includes(feature.id) ? (
-                          <Check className="h-5 w-5 text-green-600 mx-auto" />
-                        ) : (
-                          <span className="text-gray-300">—</span>
-                        )}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-                <tr className="border-b">
-                  <td className="py-4 px-4 font-medium">Users Included</td>
-                  {visiblePlans.map(plan => (
-                    <td key={plan.id} className="text-center py-4 px-4">
-                      {plan.limits.users || 1}
-                    </td>
-                  ))}
-                </tr>
-                {visiblePlans.some(p => p.limits.apiCalls) && (
-                  <tr className="border-b">
-                    <td className="py-4 px-4 font-medium">API Calls/Month</td>
-                    {visiblePlans.map(plan => (
-                      <td key={plan.id} className="text-center py-4 px-4">
-                        {plan.limits.apiCalls === -1 
-                          ? 'Unlimited' 
-                          : plan.limits.apiCalls?.toLocaleString() || '—'}
-                      </td>
-                    ))}
-                  </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
-        </div>
+      renderAddonButton={(addon) => (
+        <Button
+          asChild
+          className="w-full mt-auto"
+          variant={addon.monthlyPrice ? 'default' : 'outline'}
+        >
+          <Link href={addon.monthlyPrice ? 'https://hydrogen.nuvoxel.com/pricing' : 'https://nuvoxel.com/company/contact'}>
+            {addon.monthlyPrice ? 'Add to Plan' : 'Contact Sales'}
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Link>
+        </Button>
       )}
-    </div>
+    />
   )
 }

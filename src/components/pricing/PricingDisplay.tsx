@@ -137,8 +137,8 @@ export function PricingDisplay({
                   )}
                 </div>
 
-                {/* Description */}
-                <CardDescription className="mt-4">{plan.description}</CardDescription>
+                {/* Description - fixed height for alignment */}
+                <CardDescription className="mt-4 min-h-[48px] line-clamp-2">{plan.description}</CardDescription>
               </CardHeader>
 
               <CardContent className="flex flex-col flex-grow p-6">
@@ -248,8 +248,8 @@ export function PricingDisplay({
                       )}
                     </div>
 
-                    {/* Description */}
-                    <CardDescription className="mt-4">
+                    {/* Description - fixed height for alignment */}
+                    <CardDescription className="mt-4 min-h-[48px] line-clamp-2">
                       {addon.description}
                     </CardDescription>
                   </CardHeader>

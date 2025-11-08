@@ -15,12 +15,11 @@ interface PricingTableProps {
   className?: string
 }
 
-export function PricingTable({ 
-  showFeatureComparison = false, 
+export function PricingTable({
+  showFeatureComparison = false,
   maxColumns = 4,
-  className 
+  className
 }: PricingTableProps) {
-  const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>('monthly')
   const { data, loading, error } = usePricing()
 
   if (loading) {
@@ -95,11 +94,8 @@ export function PricingTable({
     )
   }
 
-  const getPrice = (plan: Plan) => {
+  const getMonthlyPrice = (plan: Plan) => {
     try {
-      if (billingCycle === 'annual' && plan.pricing?.annual) {
-        return plan.pricing.annual / 12 // Show monthly price when billed annually
-      }
       return plan.pricing?.monthly || 0
     } catch {
       return 0
@@ -156,33 +152,6 @@ export function PricingTable({
 
   return (
     <div className={className}>
-      {/* Billing Cycle Toggle */}
-      {data.billingCycles && data.billingCycles.length > 1 && (
-        <div className="flex justify-center mb-8">
-          <div className="inline-flex items-center gap-4 p-1 bg-muted rounded-lg">
-            {data.billingCycles.map(cycle => (
-              <button
-                key={cycle.id}
-                onClick={() => setBillingCycle(cycle.id as 'monthly' | 'annual')}
-                className={cn(
-                  "px-4 py-2 rounded-md text-sm font-medium transition-colors",
-                  billingCycle === cycle.id
-                    ? "bg-background text-foreground shadow-sm"
-                    : "text-muted-foreground hover:text-foreground"
-                )}
-              >
-                {cycle.label}
-                {cycle.discountPercentage && cycle.id === 'annual' && (
-                  <span className="ml-1 text-xs text-green-600">
-                    Save {cycle.discountPercentage}%
-                  </span>
-                )}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
-
       {/* Pricing Cards */}
       <div className={cn(
         "grid gap-6",
@@ -192,7 +161,7 @@ export function PricingTable({
         visiblePlans.length >= 4 && "md:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto"
       )}>
         {visiblePlans.map(plan => {
-          const price = getPrice(plan)
+          const price = getMonthlyPrice(plan)
           const displayFeatures = getPlanFeatures(plan)
 
           return (
@@ -217,14 +186,7 @@ export function PricingTable({
                   <span className="text-3xl font-bold">
                     {formatPrice(price, plan.pricing.currency)}
                   </span>
-                  <span className="text-muted-foreground">
-                    /{billingCycle === 'annual' ? 'mo' : 'month'}
-                  </span>
-                  {billingCycle === 'annual' && plan.pricing.annual && (
-                    <div className="text-xs text-muted-foreground mt-1">
-                      {formatPrice(plan.pricing.annual, plan.pricing.currency)}/year
-                    </div>
-                  )}
+                  <span className="text-muted-foreground">/month</span>
                 </div>
                 <CardDescription className="mt-2">
                   {plan.description}

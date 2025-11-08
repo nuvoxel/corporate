@@ -226,6 +226,16 @@ export function PricingTable({
                   </div>
                 )}
 
+                {/* Free Plan Badge */}
+                {plan.id === 'free' && (
+                  <div className="border-t pt-3 mb-3">
+                    <div className="flex items-center justify-center gap-1 text-xs text-green-600 font-medium">
+                      <Check className="h-3 w-3" />
+                      No credit card required
+                    </div>
+                  </div>
+                )}
+
                 {/* CTA Button */}
                 <Button 
                   asChild 

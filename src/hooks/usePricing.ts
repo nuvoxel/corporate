@@ -13,6 +13,7 @@ export interface PricingData {
   monthly: number
   annual?: number
   perUser?: number
+  perResource?: number
   currency: string
 }
 
@@ -36,6 +37,7 @@ export interface Plan {
     apiCalls?: number
     comparisons?: number
     savedComparisons?: number
+    resources?: number
   }
   features: string[]
   marketplaces?: MarketplaceListing[]
@@ -68,12 +70,21 @@ export interface Feature {
   tooltip?: string
 }
 
+export interface Addon {
+  id: string
+  name: string
+  description: string
+  pricing: PricingData
+  features: string[]
+}
+
 export interface PricingResponse {
   version: string
   lastUpdated: string
   currency: string
   billingCycles: BillingCycle[]
   plans: Plan[]
+  addons?: Addon[]
   marketplaces: Marketplace[]
   features: Feature[]
 }

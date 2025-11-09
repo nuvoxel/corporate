@@ -56,7 +56,7 @@ export function PricingTable({
   }
 
   // Safely filter and sort plans
-  let visiblePlans = []
+  let visiblePlans: any[] = []
   try {
     visiblePlans = data.plans
       .filter(plan => plan && plan.visible !== false)

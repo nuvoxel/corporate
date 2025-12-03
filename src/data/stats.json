@@ -6,21 +6,21 @@
     "order": 1
   },
   {
-    "id": "real-time-updates",
-    "value": "24/7",
-    "label": "Real-time Updates",
+    "id": "spend-under-management",
+    "value": "$22M+",
+    "label": "Monthly Spend Managed",
     "order": 2
   },
   {
-    "id": "savings-generated",
-    "value": "$2M+",
-    "label": "Savings Generated",
+    "id": "resources-under-management",
+    "value": "4.6M+",
+    "label": "Resources Managed",
     "order": 3
   },
   {
-    "id": "comparisons-daily",
-    "value": "10k+",
-    "label": "Comparisons Daily",
+    "id": "cloud-providers",
+    "value": "6",
+    "label": "Cloud Providers",
     "order": 4
   }
 ]

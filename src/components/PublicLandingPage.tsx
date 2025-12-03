@@ -193,79 +193,103 @@ export default function PublicLandingPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-gray-100">Why Teams Choose Hydrogen</h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Built by cloud architects, for cloud architects. The authoritative platform for transparent cloud cost analysis.
+              Complete visibility into your cloud estate. Connect your accounts, discover every resource, and optimize with confidence.
             </p>
           </div>
-          
+
+          {/* Intelligence Graph - Featured Card */}
+          <Card className="mb-8 hover:shadow-lg transition-shadow border-0 shadow-sm hover:shadow-xl ring-2 ring-primary/20 overflow-hidden">
+            <div className="grid lg:grid-cols-2 gap-0">
+              <CardHeader className="p-8 flex flex-col justify-center">
+                <div className="mb-4">
+                  <Sparkles className="w-12 h-12 text-primary icon-glow" />
+                </div>
+                <CardTitle className="text-2xl mb-3">Intelligence Graph</CardTitle>
+                <CardDescription className="text-base">
+                  See how everything connects. Our intelligence graph correlates data across providers—linking Entra logs to Azure resources, access patterns to costs, and more. Explore relationships between users, resources, and activity across your entire cloud estate.
+                </CardDescription>
+              </CardHeader>
+              <div className="relative bg-slate-100 dark:bg-slate-800 min-h-[300px] lg:min-h-[350px]">
+                <Image
+                  src="/images/intelligence-graph.png"
+                  alt="Hydrogen Intelligence Graph showing connected cloud resources"
+                  fill
+                  className="object-cover object-left-top"
+                />
+              </div>
+            </div>
+          </Card>
+
+          {/* Feature Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card className="hover:shadow-lg transition-shadow border-0 shadow-sm hover:shadow-xl">
               <CardHeader>
                 <div className="mb-4">
                   <TrendingUp className="w-10 h-10 text-primary icon-glow" />
                 </div>
-                <CardTitle>Spend Intelligence</CardTitle>
+                <CardTitle>Cost Analysis</CardTitle>
                 <CardDescription className="mt-2">
-                  Slice and dice your existing cloud spend across any provider. Project cost changes with real-time pricing and what-if scenario modeling.
+                  Understand your cloud spend across providers. Slice by service, region, or tag. Identify cost drivers and track spending trends over time.
                 </CardDescription>
               </CardHeader>
             </Card>
-            
+
             <Card className="hover:shadow-lg transition-shadow border-0 shadow-sm hover:shadow-xl">
               <CardHeader>
                 <div className="mb-4">
                   <BarChart3 className="w-10 h-10 text-primary icon-glow" />
                 </div>
-                <CardTitle>Workload Intelligence</CardTitle>
+                <CardTitle>Resource Inventory</CardTitle>
                 <CardDescription className="mt-2">
-                  Deep analysis of your specific requirements. Our findings engine maps workload patterns to optimal cloud configurations across providers.
+                  Complete visibility into every resource across Azure, AWS, GCP, M365, and Oracle. Search, filter, and organize your entire cloud estate.
                 </CardDescription>
               </CardHeader>
             </Card>
-            
-            <Card className="hover:shadow-lg transition-shadow border-0 shadow-sm hover:shadow-xl">
-              <CardHeader>
-                <div className="mb-4">
-                  <Sparkles className="w-10 h-10 text-primary icon-glow" />
-                </div>
-                <CardTitle>Predictive Intelligence</CardTitle>
-                <CardDescription className="mt-2">
-                  AI-powered forecasting and anomaly detection. Predict future costs, identify optimization opportunities, and receive proactive alerts.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-            
-            <Card className="hover:shadow-lg transition-shadow border-0 shadow-sm hover:shadow-xl">
-              <CardHeader>
-                <div className="mb-4">
-                  <Shield className="w-10 h-10 text-primary icon-glow" />
-                </div>
-                <CardTitle>Flexible Data Storage</CardTitle>
-                <CardDescription className="mt-2">
-                  Choose where your data lives: our shared platform, dedicated instance, or your own infrastructure. Complete control over your sensitive information.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-            
-            <Card className="hover:shadow-lg transition-shadow border-0 shadow-sm hover:shadow-xl">
-              <CardHeader>
-                <div className="mb-4">
-                  <Zap className="w-10 h-10 text-primary icon-glow" />
-                </div>
-                <CardTitle>Benchmark & Compare</CardTitle>
-                <CardDescription className="mt-2">
-                  Answer simple questions to find the cheapest provider for your workload. Real performance benchmarks across our growing catalog of cloud services.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-            
+
             <Card className="hover:shadow-lg transition-shadow border-0 shadow-sm hover:shadow-xl">
               <CardHeader>
                 <div className="mb-4">
                   <Cloud className="w-10 h-10 text-primary icon-glow" />
                 </div>
-                <CardTitle>Multi-Cloud Native</CardTitle>
+                <CardTitle>Multi-Cloud Connections</CardTitle>
                 <CardDescription className="mt-2">
-                  True resource equivalence mapping across providers. Compare EC2 vs VMs vs Compute Engine with automatic spec matching and performance normalization.
+                  Connect all your cloud accounts in minutes. Automatic discovery keeps resources, pricing, and metadata up to date across all providers.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow border-0 shadow-sm hover:shadow-xl">
+              <CardHeader>
+                <div className="mb-4">
+                  <Zap className="w-10 h-10 text-primary icon-glow" />
+                </div>
+                <CardTitle>Network & Access</CardTitle>
+                <CardDescription className="mt-2">
+                  Visualize network topology and access patterns. Understand how resources connect and who has access to what across your organization.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow border-0 shadow-sm hover:shadow-xl">
+              <CardHeader>
+                <div className="mb-4">
+                  <Shield className="w-10 h-10 text-primary icon-glow" />
+                </div>
+                <CardTitle>Tags & Governance</CardTitle>
+                <CardDescription className="mt-2">
+                  Discover and analyze tags across all providers. Identify missing tags, enforce policies, and ensure consistent metadata for cost allocation.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow border-0 shadow-sm hover:shadow-xl">
+              <CardHeader>
+                <div className="mb-4">
+                  <Users className="w-10 h-10 text-primary icon-glow" />
+                </div>
+                <CardTitle>Groups & Comparison</CardTitle>
+                <CardDescription className="mt-2">
+                  Organize resources into logical groups. Compare configurations across providers to find the optimal setup for your workloads.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -279,10 +303,10 @@ export default function PublicLandingPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Simple, Transparent Pricing</h2>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              Start free with powerful comparison tools. Upgrade when you need advanced features and team collaboration.
+              Free for your first 250 resources. Pay as you scale beyond that. Add premium features when you need them.
             </p>
           </div>
-          
+
           {/* Dynamic Pricing Table */}
           <PricingTable maxColumns={4} />
         </div>

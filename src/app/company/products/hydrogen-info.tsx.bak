@@ -1,5 +1,0 @@
-import PublicLandingPage from '@/components/PublicLandingPage'
-
-export default function HydrogenPage() {
-  return <PublicLandingPage />
-}

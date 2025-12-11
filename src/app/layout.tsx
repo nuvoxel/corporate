@@ -3,7 +3,7 @@ import { Amiko } from 'next/font/google'
 import { Providers } from '@/components/Providers'
 import { Toaster } from '@/components/ui/toaster'
 import { NavigationWrapper } from '@/components/NavigationWrapper'
-import { AuthenticatedLayout } from '@/components/AuthenticatedLayout'
+import { PageLayout } from '@/components/PageLayout'
 import './globals.css'
 
 const amiko = Amiko({
@@ -45,9 +45,9 @@ export default function RootLayout({
       <body className={`${amiko.variable} font-amiko bg-background text-foreground`}>
         <Providers>
           <NavigationWrapper />
-          <AuthenticatedLayout>
+          <PageLayout>
             {children}
-          </AuthenticatedLayout>
+          </PageLayout>
           <Toaster />
         </Providers>
       </body>

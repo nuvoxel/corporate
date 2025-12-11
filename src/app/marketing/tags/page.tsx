@@ -172,8 +172,8 @@ export default function TagsPage() {
                   <div>
                     <h3 className="font-semibold mb-2">Cost Attribution Reports</h3>
                     <p className="text-muted-foreground">
-                                          Finally answer &quot;What did this project/department/team cost?&quot; with accurate, 
-                    tag-based cost allocation across all your cloud providers.
+                      Finally answer &quot;What did this project/department/team cost?&quot; with accurate,
+                      tag-based cost allocation across all your cloud providers.
                     </p>
                   </div>
                 </CardContent>

@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import pricingData from '@/data/pricing.json'
 
 export interface BillingCycle {
   id: string
@@ -171,12 +170,20 @@ export function usePricing(options: UsePricingOptions = {}): UsePricingResult {
   }
 }
 
-// Fallback static data from JSON file
+// Fallback static data when API is unavailable
 function getStaticPricingData(): PricingResponse {
   return {
-    ...pricingData,
-    lastUpdated: new Date().toISOString()
-  } as PricingResponse
+    version: '1.0.0',
+    lastUpdated: new Date().toISOString(),
+    currency: 'USD',
+    billingCycles: [
+      { id: 'monthly', label: 'Monthly' },
+      { id: 'annual', label: 'Annual', discountPercentage: 20 }
+    ],
+    plans: [],
+    marketplaces: [],
+    features: []
+  }
 }
 
 // Utility function to format price

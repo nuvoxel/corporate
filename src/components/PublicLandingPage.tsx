@@ -3,20 +3,19 @@
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card'
-import { 
-  TrendingUp, 
-  BarChart3, 
+import {
+  TrendingUp,
   Sparkles,
-  Shield,
-  Calendar,
-  Cloud,
   Lock,
-  FileDown,
   AlertCircle,
-  Users,
-  Zap,
-  Check,
-  ArrowRight
+  Trophy,
+  Layers,
+  Network,
+  Tag,
+  GitCompare,
+  FolderTree,
+  Package,
+  FileOutput
 } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -88,7 +87,7 @@ export default function PublicLandingPage() {
               </div>
               
               <p className="text-xl text-gray-600 dark:text-gray-300 mb-10 max-w-2xl leading-relaxed">
-                Six intelligence types for smarter cloud decisions. Compare providers, analyze existing workloads, predict costs, and find optimal configurations across AWS, Azure, GCP and more.
+                AI-powered cloud intelligence for smarter decisions. Analyze costs, identify security risks, optimize workloads, and find optimal configurations across AWS, Azure, GCP, and more.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start items-center">
@@ -204,9 +203,9 @@ export default function PublicLandingPage() {
                 <div className="mb-4">
                   <Sparkles className="w-12 h-12 text-primary icon-glow" />
                 </div>
-                <CardTitle className="text-2xl mb-3">Intelligence Graph</CardTitle>
+                <CardTitle className="text-2xl mb-3">Cloud Intelligence</CardTitle>
                 <CardDescription className="text-base">
-                  See how everything connects. Our intelligence graph correlates data across providers—linking Entra logs to Azure resources, access patterns to costs, and more. Explore relationships between users, resources, and activity across your entire cloud estate.
+                  AI-powered force-graph visualization of your cloud infrastructure with resource relationships, dependencies, and real-time intelligence feeds. See how everything connects across Azure, AWS, GCP, and more.
                 </CardDescription>
               </CardHeader>
               <div className="relative bg-slate-100 dark:bg-slate-800 min-h-[300px] lg:min-h-[350px]">
@@ -229,7 +228,7 @@ export default function PublicLandingPage() {
                 </div>
                 <CardTitle>Cost Analysis</CardTitle>
                 <CardDescription className="mt-2">
-                  Understand your cloud spend across providers. Slice by service, region, or tag. Identify cost drivers and track spending trends over time.
+                  AI-driven cloud spend analysis with trend tracking, forecasting, budget alerts, and anomaly detection by service, region, and tags.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -237,11 +236,71 @@ export default function PublicLandingPage() {
             <Card className="hover:shadow-lg transition-shadow border-0 shadow-sm hover:shadow-xl">
               <CardHeader>
                 <div className="mb-4">
-                  <BarChart3 className="w-10 h-10 text-primary icon-glow" />
+                  <Trophy className="w-10 h-10 text-primary icon-glow" />
+                </div>
+                <CardTitle>Cloud Excellence Score</CardTitle>
+                <CardDescription className="mt-2">
+                  Holistic cloud health scoring across security, cost, reliability, performance, and operations with benchmarking against industry standards.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow border-0 shadow-sm hover:shadow-xl">
+              <CardHeader>
+                <div className="mb-4">
+                  <AlertCircle className="w-10 h-10 text-primary icon-glow" />
+                </div>
+                <CardTitle>Security & Cost Findings</CardTitle>
+                <CardDescription className="mt-2">
+                  AI-identified security vulnerabilities, cost optimization opportunities, and compliance issues with remediation guidance and auto-fix capabilities.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow border-0 shadow-sm hover:shadow-xl">
+              <CardHeader>
+                <div className="mb-4">
+                  <Layers className="w-10 h-10 text-primary icon-glow" />
+                </div>
+                <CardTitle>Workload Designer</CardTitle>
+                <CardDescription className="mt-2">
+                  Visual drag-and-drop workload architecture designer with AI-assisted templates, cost estimation, and infrastructure-as-code export.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow border-0 shadow-sm hover:shadow-xl">
+              <CardHeader>
+                <div className="mb-4">
+                  <Network className="w-10 h-10 text-primary icon-glow" />
+                </div>
+                <CardTitle>Network Topology</CardTitle>
+                <CardDescription className="mt-2">
+                  Network visualization showing VPCs, subnets, security groups, public endpoints, and network security posture across cloud environments.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow border-0 shadow-sm hover:shadow-xl">
+              <CardHeader>
+                <div className="mb-4">
+                  <Lock className="w-10 h-10 text-primary icon-glow" />
+                </div>
+                <CardTitle>Access Analysis</CardTitle>
+                <CardDescription className="mt-2">
+                  Identity and access path analysis showing effective permissions, role inheritance, and security risks across principals and resources.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow border-0 shadow-sm hover:shadow-xl">
+              <CardHeader>
+                <div className="mb-4">
+                  <Package className="w-10 h-10 text-primary icon-glow" />
                 </div>
                 <CardTitle>Resource Inventory</CardTitle>
                 <CardDescription className="mt-2">
-                  Complete visibility into every resource across Azure, AWS, GCP, M365, and Oracle. Search, filter, and organize your entire cloud estate.
+                  Complete searchable inventory of cloud resources with AI-powered activity tracking, zombie resource detection, and multi-cloud asset management.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -249,11 +308,11 @@ export default function PublicLandingPage() {
             <Card className="hover:shadow-lg transition-shadow border-0 shadow-sm hover:shadow-xl">
               <CardHeader>
                 <div className="mb-4">
-                  <Cloud className="w-10 h-10 text-primary icon-glow" />
+                  <FolderTree className="w-10 h-10 text-primary icon-glow" />
                 </div>
-                <CardTitle>Multi-Cloud Connections</CardTitle>
+                <CardTitle>Resource Groups</CardTitle>
                 <CardDescription className="mt-2">
-                  Connect all your cloud accounts in minutes. Automatic discovery keeps resources, pricing, and metadata up to date across all providers.
+                  Organize resources into smart groups with dynamic queries or manual assignment for cost tracking, security monitoring, and team allocation.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -261,11 +320,11 @@ export default function PublicLandingPage() {
             <Card className="hover:shadow-lg transition-shadow border-0 shadow-sm hover:shadow-xl">
               <CardHeader>
                 <div className="mb-4">
-                  <Zap className="w-10 h-10 text-primary icon-glow" />
+                  <Tag className="w-10 h-10 text-primary icon-glow" />
                 </div>
-                <CardTitle>Network & Access</CardTitle>
+                <CardTitle>Tag Management</CardTitle>
                 <CardDescription className="mt-2">
-                  Visualize network topology and access patterns. Understand how resources connect and who has access to what across your organization.
+                  Tag coverage analysis, gap detection, conflict resolution, and AI-powered tag suggestions to improve resource organization and cost allocation.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -273,11 +332,11 @@ export default function PublicLandingPage() {
             <Card className="hover:shadow-lg transition-shadow border-0 shadow-sm hover:shadow-xl">
               <CardHeader>
                 <div className="mb-4">
-                  <Shield className="w-10 h-10 text-primary icon-glow" />
+                  <GitCompare className="w-10 h-10 text-primary icon-glow" />
                 </div>
-                <CardTitle>Tags & Governance</CardTitle>
+                <CardTitle>Cloud Comparison</CardTitle>
                 <CardDescription className="mt-2">
-                  Discover and analyze tags across all providers. Identify missing tags, enforce policies, and ensure consistent metadata for cost allocation.
+                  Compare VM sizes, pricing, and capabilities across Azure, AWS, and Google Cloud with spot, reserved, and on-demand pricing options.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -285,11 +344,11 @@ export default function PublicLandingPage() {
             <Card className="hover:shadow-lg transition-shadow border-0 shadow-sm hover:shadow-xl">
               <CardHeader>
                 <div className="mb-4">
-                  <Users className="w-10 h-10 text-primary icon-glow" />
+                  <FileOutput className="w-10 h-10 text-primary icon-glow" />
                 </div>
-                <CardTitle>Groups & Comparison</CardTitle>
+                <CardTitle>Enterprise Exports</CardTitle>
                 <CardDescription className="mt-2">
-                  Organize resources into logical groups. Compare configurations across providers to find the optimal setup for your workloads.
+                  Export to native PowerPoint (PPTX), Excel, and Visio (VSDX) with fully editable charts, diagrams, and visualizations for presentations and documentation.
                 </CardDescription>
               </CardHeader>
             </Card>

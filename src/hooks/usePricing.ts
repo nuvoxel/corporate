@@ -73,7 +73,10 @@ export interface Addon {
   id: string
   name: string
   description: string
-  pricing: PricingData
+  pricing: PricingData & {
+    meteredPricePerUnit?: number
+    meteredUnit?: string
+  }
   features: string[]
 }
 

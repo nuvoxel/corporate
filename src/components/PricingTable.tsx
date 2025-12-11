@@ -109,6 +109,8 @@ export function PricingTable({
     name: addon.name,
     description: addon.description,
     monthlyPrice: addon.pricing?.monthly ? (addon.pricing.monthly / 100).toString() : undefined,
+    meteredPricePerUnit: addon.pricing?.meteredPricePerUnit?.toString() || undefined,
+    meteredUnit: addon.pricing?.meteredUnit || undefined,
     features: addon.features || []
   }))
 

@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+/* ===== Dark Mode Configuration ===== */
+/* Use .dark class selector (for next-themes) instead of prefers-color-scheme */
+/* Using :is() gives the dark variant higher specificity to override light mode */
+@variant dark (&:is(.dark, .dark *));
+
 /* ===== Tailwind v4 Theme Configuration ===== */
 @theme {
   /* Container */

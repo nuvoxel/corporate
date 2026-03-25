@@ -29,8 +29,8 @@ const projects = [
   {
     title: 'Filla IQ',
     description:
-      'Smart inventory and fulfillment intelligence. Because guessing isn\'t a strategy for growing ecommerce businesses.',
-    tag: 'Software Project',
+      'Open-source smart workshop inventory. NFC scanning, precision weighing, and spectral color detection to automatically identify and track filament spools, fasteners, and shop supplies.',
+    tag: 'Hardware + Software',
     href: '/projects/fillaiq',
     linkText: 'Learn more',
     icon: Brain,

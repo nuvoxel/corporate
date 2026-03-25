@@ -1,0 +1,6 @@
+apiVersion: v2
+name: corporate
+description: NuVoxel corporate website
+type: application
+version: 1.0.0
+appVersion: "1.0.0"

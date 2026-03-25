@@ -1,0 +1,50 @@
+{{- if .Values.ingress.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: corporate-ingress
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: corporate
+    environment: {{ .Values.environment }}
+  annotations:
+    {{- if .Values.ingress.tlsEnabled }}
+    cert-manager.io/cluster-issuer: {{ .Values.ingress.certManagerIssuer | quote }}
+    {{- end }}
+    {{- if eq .Values.ingress.className "nginx" }}
+    {{- if .Values.ingress.tlsEnabled }}
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    {{- end }}
+    {{- end }}
+spec:
+  ingressClassName: {{ .Values.ingress.className }}
+  {{- if .Values.ingress.tlsEnabled }}
+  tls:
+    - hosts:
+        - {{ .Values.ingress.domain }}
+        - www.{{ .Values.ingress.domain }}
+      secretName: corporate-tls-{{ .Values.environment }}
+  {{- end }}
+  rules:
+    - host: {{ .Values.ingress.domain }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: corporate-web
+                port:
+                  number: 3000
+    - host: www.{{ .Values.ingress.domain }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: corporate-web
+                port:
+                  number: 3000
+{{- end }}

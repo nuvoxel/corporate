@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Use export for static site deployment on Azure Static Web Apps
-  output: 'export',
+  // Use standalone for containerized deployment on Kubernetes
+  output: 'standalone',
   images: {
     unoptimized: true,
   },

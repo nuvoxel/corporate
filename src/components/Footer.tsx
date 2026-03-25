@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import { NuVoxelLogo } from './NuVoxelLogo'
 import { Linkedin, Youtube, BookOpen } from 'lucide-react'
 
@@ -13,22 +12,12 @@ export function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           {/* Logo & Copyright */}
           <div className="flex flex-col items-center md:items-start gap-2">
-            <Link href="/" className="inline-flex items-center hover:opacity-80 transition-opacity">
+            <a href="/" className="inline-flex items-center hover:opacity-80 transition-opacity">
               <NuVoxelLogo className="h-7 w-auto" variant="complete" />
-            </Link>
+            </a>
             <p className="text-sm text-muted-foreground">
               © {currentYear} NuVoxel LLC. the Bay Area.
             </p>
-          </div>
-
-          {/* Links */}
-          <div className="flex gap-6 text-sm">
-            <Link href="/legal/terms" className="text-muted-foreground hover:text-foreground transition-colors">
-              Terms
-            </Link>
-            <Link href="/legal/privacy" className="text-muted-foreground hover:text-foreground transition-colors">
-              Privacy
-            </Link>
           </div>
 
           {/* Social */}

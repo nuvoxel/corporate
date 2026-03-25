@@ -33,7 +33,7 @@ const categories = [
     icon: Sparkles,
     title: 'Interesting Finds',
     description:
-      'Occasionally we come across cool stuff. Vintage tech, unique parts, things that caught our eye.',
+      'Things we got a good deal on, stuff Mike bought and now doesn\'t need, vintage tech, and unique parts that caught our eye.',
   },
 ]
 

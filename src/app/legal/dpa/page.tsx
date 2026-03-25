@@ -19,7 +19,7 @@ export default function DPAPage() {
 
           <p className="mb-4">
             This Data Processing Agreement (&quot;DPA&quot;) forms part of the agreement between NuVoxel LLC (&quot;NuVoxel,&quot; &quot;Processor,&quot; &quot;we,&quot; or &quot;us&quot;)
-            and you (&quot;Controller,&quot; &quot;Customer,&quot; or &quot;you&quot;) for the provision of the Hydrogen Cloud Intelligence platform and related services.
+            and you (&quot;Controller,&quot; &quot;Customer,&quot; or &quot;you&quot;) for the provision of NuVoxel services and related platforms.
           </p>
 
           <h2 className="text-2xl font-semibold mt-8 mb-4">1. Definitions</h2>
@@ -35,7 +35,7 @@ export default function DPAPage() {
           <h2 className="text-2xl font-semibold mt-8 mb-4">2. Scope and Purpose</h2>
           <p className="mb-4">
             This DPA applies to the processing of Personal Data by NuVoxel on behalf of the Customer in connection with the Service.
-            NuVoxel processes Personal Data solely to provide the Hydrogen Cloud Intelligence platform, including:
+            NuVoxel processes Personal Data solely to provide NuVoxel services and platforms, including:
           </p>
           <ul className="list-disc pl-6 mb-4">
             <li>Cloud resource analytics and cost optimization</li>

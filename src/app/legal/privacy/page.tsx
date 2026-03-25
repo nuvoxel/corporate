@@ -19,7 +19,7 @@ export default function PrivacyPage() {
 
           <p className="mb-4">
             NuVoxel LLC (&quot;NuVoxel,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) is committed to protecting your privacy. This Privacy Policy
-            explains how we collect, use, disclose, and safeguard your information when you use our Hydrogen Cloud Intelligence
+            explains how we collect, use, disclose, and safeguard your information when you use our NuVoxel
             platform and related services (collectively, the &quot;Service&quot;).
           </p>
 

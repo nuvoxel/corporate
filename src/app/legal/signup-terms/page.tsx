@@ -28,7 +28,7 @@ export default function SignupTermsPage() {
 
           <h2 className="text-2xl font-semibold mt-8 mb-4">What You&apos;re Agreeing To</h2>
           <p className="mb-4">
-            By creating a NuVoxel account or using the Hydrogen Cloud Intelligence platform, you agree to:
+            By creating a NuVoxel account or using NuVoxel services and platforms, you agree to:
           </p>
           <ul className="list-disc pl-6 mb-4">
             <li>
@@ -79,7 +79,7 @@ export default function SignupTermsPage() {
 
           <h3 className="text-xl font-semibold mt-6 mb-3">Service Providers</h3>
           <p className="mb-4">
-            We use trusted third-party services to operate Hydrogen:
+            We use trusted third-party services to operate our services:
           </p>
           <ul className="list-disc pl-6 mb-4">
             <li><strong>Microsoft Azure, AWS, GCP</strong> - Infrastructure and hosting</li>

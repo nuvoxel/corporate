@@ -44,7 +44,7 @@ export default function DoNotSellPage() {
           <h2 className="text-2xl font-semibold mt-8 mb-4">How We Use Your Information</h2>
           <p className="mb-4">Your information is used for:</p>
           <ul className="list-disc pl-6 mb-4">
-            <li>Providing the Hydrogen Cloud Intelligence platform and related services</li>
+            <li>Providing NuVoxel services and related platforms</li>
             <li>Processing payments through our payment processor (Stripe)</li>
             <li>Sending transactional emails (via Resend)</li>
             <li>Improving and personalizing your experience</li>

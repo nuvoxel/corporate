@@ -14,7 +14,7 @@ const amiko = Amiko({
 
 export const metadata: Metadata = {
   title: 'NuVoxel - Ideas. Projects. No Corporate BS.',
-  description: 'NuVoxel is Mike DeLuca\'s workshop for interesting ideas and projects. Cloud cost optimization, Filla IQ, parts & supplies, and the Hydrogen cloud intelligence platform.',
+  description: 'NuVoxel is Mike DeLuca\'s workshop for interesting ideas and projects. Cloud cost optimization, Filla IQ, and parts & supplies.',
   icons: {
     icon: '/favicon.svg',
     shortcut: '/favicon.svg',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://nuvoxel.com'),
   openGraph: {
     title: 'NuVoxel - Ideas. Projects. No Corporate BS.',
-    description: 'Mike DeLuca\'s workshop for interesting ideas and projects. CryingCloud, Filla IQ, NuVoxel Shop, and Hydrogen.',
+    description: 'Mike DeLuca\'s workshop for interesting ideas and projects. CryingCloud, Filla IQ, and NuVoxel Shop.',
     url: 'https://nuvoxel.com',
     siteName: 'NuVoxel',
     type: 'website',

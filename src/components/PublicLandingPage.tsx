@@ -5,7 +5,6 @@ import {
   CloudRain,
   Brain,
   Package,
-  FlaskConical,
   ArrowRight,
   Linkedin,
   Youtube,
@@ -54,20 +53,6 @@ const projects = [
     tagText: 'text-nuvoxel-sky',
     iconBg: 'bg-nuvoxel-sky/10',
     iconColor: 'text-nuvoxel-sky',
-  },
-  {
-    title: 'Hydrogen',
-    description:
-      'Cloud intelligence platform. Compare providers, analyze costs, and find the best deals across AWS, Azure, and GCP.',
-    tag: 'Cloud Platform',
-    href: '/projects/hydrogen',
-    linkText: 'Try Hydrogen',
-    icon: FlaskConical,
-    borderColor: 'border-nuvoxel-navy',
-    tagBg: 'bg-nuvoxel-navy/5',
-    tagText: 'text-nuvoxel-navy',
-    iconBg: 'bg-nuvoxel-navy/5',
-    iconColor: 'text-nuvoxel-navy',
   },
 ]
 

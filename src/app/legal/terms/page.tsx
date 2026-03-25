@@ -18,7 +18,7 @@ export default function TermsPage() {
           </p>
 
           <p className="mb-4">
-            These Terms of Service (&quot;Terms&quot;) govern your access to and use of the Hydrogen Cloud Intelligence platform
+            These Terms of Service (&quot;Terms&quot;) govern your access to and use of NuVoxel services and platforms
             and related services (collectively, the &quot;Service&quot;) operated by NuVoxel LLC (&quot;NuVoxel,&quot; &quot;Company,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;).
             By accessing or using the Service, you agree to be bound by these Terms.
           </p>
@@ -35,7 +35,7 @@ export default function TermsPage() {
 
           <h2 className="text-2xl font-semibold mt-8 mb-4">2. Description of Service</h2>
           <p className="mb-4">
-            Hydrogen is a cloud intelligence platform that provides analytics, cost optimization, security insights,
+            NuVoxel provides various services and platforms including analytics, cost optimization,
             and performance benchmarking across cloud providers including Microsoft Azure, Amazon Web Services (AWS),
             Google Cloud Platform (GCP), and Microsoft 365.
           </p>

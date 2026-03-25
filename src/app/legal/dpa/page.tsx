@@ -216,7 +216,7 @@ export default function DPAPage() {
             <br />
             702 via Hermosa
             <br />
-            San Francisco, CA 94526 USA
+            the Bay Area 94526 USA
             <br />
             <br />
             Email: legal@nuvoxel.com

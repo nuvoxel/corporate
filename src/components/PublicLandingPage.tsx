@@ -68,7 +68,7 @@ export default function PublicLandingPage() {
           </h1>
           <p className="max-w-2xl mx-auto text-lg md:text-xl text-slate-600 dark:text-slate-300 mb-10 leading-relaxed">
             NuVoxel is Mike DeLuca&apos;s workshop for building things that are
-            interesting, useful, or just fun. Based in San Francisco, CA.
+            interesting, useful, or just fun. Based in the Bay Area.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
@@ -138,7 +138,7 @@ export default function PublicLandingPage() {
       <section className="bg-nuvoxel-navy py-12">
         <div className="max-w-[1200px] mx-auto px-6 flex flex-col items-center">
           <p className="text-white text-lg font-medium mb-6 text-center">
-            NuVoxel LLC — Built with curiosity in San Francisco, CA
+            NuVoxel LLC — Built with curiosity in the Bay Area
           </p>
           <div className="flex gap-8">
             <a

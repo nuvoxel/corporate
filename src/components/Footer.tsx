@@ -17,7 +17,7 @@ export function Footer() {
               <NuVoxelLogo className="h-7 w-auto" variant="complete" />
             </Link>
             <p className="text-sm text-muted-foreground">
-              © {currentYear} NuVoxel LLC. Danville, CA.
+              © {currentYear} NuVoxel LLC. San Francisco, CA.
             </p>
           </div>
 

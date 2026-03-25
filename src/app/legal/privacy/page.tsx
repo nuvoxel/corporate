@@ -204,7 +204,7 @@ export default function PrivacyPage() {
             <br />
             702 via Hermosa
             <br />
-            Danville, CA 94526 USA
+            San Francisco, CA 94526 USA
             <br />
             <br />
             Email: legal@nuvoxel.com

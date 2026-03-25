@@ -94,7 +94,7 @@ export default function DoNotSellPage() {
                   NuVoxel LLC<br />
                   Attn: Privacy<br />
                   702 via Hermosa<br />
-                  Danville, CA 94526 USA
+                  San Francisco, CA 94526 USA
                 </p>
               </div>
               <p className="text-sm text-muted-foreground">

@@ -64,7 +64,7 @@ export default function PublicLandingPage() {
         <div className="max-w-[1200px] mx-auto px-6 text-center relative z-10">
           <h1 className="font-amiko text-5xl md:text-7xl font-bold text-nuvoxel-navy dark:text-white mb-6 tracking-tight">
             Ideas. Projects.{' '}
-            <span className="text-nuvoxel-ocean">No Corporate BS.</span>
+            <span className="text-nuvoxel-ocean">Built with curiosity.</span>
           </h1>
           <p className="max-w-2xl mx-auto text-lg md:text-xl text-slate-600 dark:text-slate-300 mb-10 leading-relaxed">
             NuVoxel is Mike DeLuca&apos;s workshop for building things that are

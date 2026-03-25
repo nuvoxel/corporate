@@ -1,53 +1,80 @@
 'use client'
 
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
 import { NuVoxelLogo } from './NuVoxelLogo'
 import { usePathname } from 'next/navigation'
 import ThemeSwitcher from './ThemeSwitcher'
+import { Menu, X } from 'lucide-react'
+import { useState } from 'react'
+
+const navLinks = [
+  { href: '/#projects', label: 'Projects' },
+  { href: '/projects/cryingcloud', label: 'CryingCloud' },
+  { href: '/projects/shop', label: 'Shop' },
+  { href: '/company/contact', label: 'Contact' },
+]
 
 export function LandingPageNavigation() {
   const pathname = usePathname()
-  const isMainLandingPage = pathname === '/'
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <nav className="flex items-center justify-between px-4 sm:px-6 py-3 border-b bg-white/90 dark:bg-slate-900/95 backdrop-blur-sm">
-      {/* Logo */}
-      <Link href="/" className="cursor-pointer">
-        <NuVoxelLogo className="h-7 sm:h-9 w-auto" variant="complete" />
-      </Link>
+    <nav className="sticky top-0 z-50 bg-white/90 dark:bg-slate-950/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm">
+      <div className="max-w-[1200px] mx-auto flex items-center justify-between px-6 py-4">
+        {/* Logo */}
+        <Link href="/" className="cursor-pointer">
+          <NuVoxelLogo className="h-7 sm:h-9 w-auto" variant="complete" />
+        </Link>
 
-      {/* Right side - Navigation */}
-      <div className="flex items-center gap-6">
-        {/* Main navigation */}
-        <div className="hidden md:flex items-center gap-6">
-          <Link href="/#hydrogen" className="text-foreground/80 hover:text-primary transition-colors">
-            Hydrogen
-          </Link>
-          <Link href="/company/pricing" className="text-foreground/80 hover:text-primary transition-colors">
-            Pricing
-          </Link>
-          <Link href="/marketing/ripoff" className="text-foreground/80 hover:text-primary transition-colors">
-            Cloud Ripoff
-          </Link>
-          <a href="https://shop.nuvoxel.com" className="text-foreground/80 hover:text-primary transition-colors">
-            Shop
-          </a>
-          <Link href="/company/contact" className="text-foreground/80 hover:text-primary transition-colors">
-            Contact Us
-          </Link>
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`font-medium transition-colors ${
+                pathname === link.href
+                  ? 'text-nuvoxel-ocean border-b-2 border-nuvoxel-ocean pb-1'
+                  : 'text-foreground/80 hover:text-nuvoxel-ocean'
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <ThemeSwitcher />
         </div>
 
-        {/* Theme switcher and Hydrogen button */}
-        <div className="flex items-center gap-2">
+        {/* Mobile menu toggle */}
+        <div className="md:hidden flex items-center gap-2">
           <ThemeSwitcher />
-          <Link href="https://hydrogen.nuvoxel.com">
-            <Button variant="default" size="sm">
-              Try Hydrogen
-            </Button>
-          </Link>
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+          >
+            {mobileMenuOpen ? (
+              <X className="h-5 w-5 text-foreground" />
+            ) : (
+              <Menu className="h-5 w-5 text-foreground" />
+            )}
+          </button>
         </div>
       </div>
+
+      {/* Mobile menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-6 py-4 space-y-3">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 text-foreground/80 hover:text-nuvoxel-ocean transition-colors"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
+      )}
     </nav>
   )
 }

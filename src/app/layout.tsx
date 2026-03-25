@@ -13,8 +13,8 @@ const amiko = Amiko({
 })
 
 export const metadata: Metadata = {
-  title: 'Hydrogen by NuVoxel - Cloud Intelligence Platform',
-  description: 'Compare cloud providers, analyze workloads, predict costs, and find optimal configurations across AWS, Azure, and GCP with real pricing transparency.',
+  title: 'NuVoxel - Ideas. Projects. No Corporate BS.',
+  description: 'NuVoxel is Mike DeLuca\'s workshop for interesting ideas and projects. Cloud cost optimization, Filla IQ, parts & supplies, and the Hydrogen cloud intelligence platform.',
   icons: {
     icon: '/favicon.svg',
     shortcut: '/favicon.svg',
@@ -22,16 +22,16 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL('https://nuvoxel.com'),
   openGraph: {
-    title: 'Hydrogen by NuVoxel',
-    description: 'Transparent cloud intelligence: compare providers, analyze workloads, predict costs.',
+    title: 'NuVoxel - Ideas. Projects. No Corporate BS.',
+    description: 'Mike DeLuca\'s workshop for interesting ideas and projects. CryingCloud, Filla IQ, NuVoxel Shop, and Hydrogen.',
     url: 'https://nuvoxel.com',
     siteName: 'NuVoxel',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Hydrogen by NuVoxel',
-    description: 'Transparent cloud intelligence: compare providers, analyze workloads, predict costs.',
+    title: 'NuVoxel - Ideas. Projects. No Corporate BS.',
+    description: 'Mike DeLuca\'s workshop for interesting ideas and projects.',
   },
 }
 
